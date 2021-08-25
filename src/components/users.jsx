@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from 'react'
 import api from '../api'
 import { swap, renderPhrase } from '../utils'
