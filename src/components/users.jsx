@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from 'react'
 import api from '../api'
+import { swap, renderPhrase } from '../utils'
 
 const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll())
 
   const titles = ['человек', 'человека', 'человек']
 
-  const colTrasnlate = {
+  const theadTrasnlate = {
     name: 'Имя',
     qualities: 'Качества',
     profession: 'Профессия',
@@ -15,37 +16,8 @@ const Users = () => {
     rate: 'Оценка',
   }
 
-  const swap = (el, i, j) => {
-    return el.map((el, idx, array) => {
-      if (idx === i) return array[j]
-      if (idx === j) return array[i]
-      return el
-    })
-  }
-
-  const dataforRendering = (i, j) => {
-    let outputData = users.reduce((acc, obj, idx) => {
-      if (idx === 0) acc.push(swap(Object.keys(obj), i, j))
-      acc.push(swap(Object.values(obj), i, j))
-      return acc
-    }, [])
-
-    return outputData
-  }
-
-  const dataRendering = dataforRendering(2, 3)
-
   const handleDelete = (userId) => {
     setUsers(users.filter((item, id) => item._id !== userId))
-  }
-
-  const renderPhrase = (number, titles) => {
-    const cases = [2, 0, 1, 1, 1, 2]
-    return titles[
-      number % 100 > 4 && number % 100 < 20
-        ? 2
-        : cases[number % 10 < 5 ? number % 10 : 5]
-    ]
   }
 
   const renderTitle = () => {
@@ -64,23 +36,26 @@ const Users = () => {
       </h4>
     )
   }
+
+  const getThead = () => swap(Object.keys(users[0]), 2, 3).slice(1)
+
   const getRow = (item, id) => {
     return (
-      <tr key={id}>
-        <td className='col-2'>{item[1]}</td>
+      <tr key={item._id}>
+        <td className='col-2'>{item.name}</td>
         <td className='col-3'>
-          {item[2].map((el, idx) => (
-            <span key={idx} className={`badge bg-${el.color} m-1`}>
+          {item.qualities.map((el, idx) => (
+            <span key={el._id} className={`badge bg-${el.color} m-1`}>
               {el.name}
             </span>
           ))}
         </td>
-        <td className='col-2'>{item[3]['name']}</td>
-        <td className='col-2'>{item[4]}</td>
-        <td className='col-1'>{item[5]}</td>
+        <td className='col-2'>{item.profession.name}</td>
+        <td className='col-2'>{item.completedMeetings}</td>
+        <td className='col-1'>{item.rate}</td>
         <td className='col-1'>
           <button
-            onClick={() => handleDelete(item[0])}
+            onClick={() => handleDelete(item._id)}
             className='btn btn-danger'
           >
             delete
@@ -98,10 +73,10 @@ const Users = () => {
       <table className='table table-hover'>
         <thead>
           <tr>
-            {dataRendering[0].slice(1).map((el, idx) => {
+            {getThead().map((el, idx) => {
               return (
                 <th scope={'col'} key={idx}>
-                  {colTrasnlate[el]}
+                  {theadTrasnlate[el]}
                 </th>
               )
             })}
@@ -109,7 +84,7 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {dataRendering.slice(1).map((el, idx) => {
+          {users.map((el, idx) => {
             return getRow(el, idx)
           })}
         </tbody>
