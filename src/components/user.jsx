@@ -2,7 +2,7 @@ import React from 'react'
 import Qualitie from './qualitie'
 import Bookmark from './bookmark'
 
-const User = ({ user, onDelete }) => {
+const User = ({ user, onDelete, ...rest }) => {
   return (
     <tr key={user._id}>
       <td className='col-2'>{user.name}</td>
@@ -14,10 +14,14 @@ const User = ({ user, onDelete }) => {
       <td className='col-2'>{user.profession.name}</td>
       <td className='col-2'>{user.completedMeetings}</td>
       <td className='col-1'>{user.rate}</td>
-      <td className='col-1'>{<Bookmark id={user._id} />}</td>
+      <td className='col-1'>{<Bookmark id={user._id} {...rest} />}</td>
       <td className='col-1'>
-        <button onClick={() => onDelete(user._id)} className='btn btn-danger'>
-          delete
+        <button
+          title='Удалить'
+          onClick={() => onDelete(user._id)}
+          className='btn btn-danger'
+        >
+          x
         </button>
       </td>
     </tr>

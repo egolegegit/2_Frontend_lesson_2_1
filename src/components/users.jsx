@@ -2,7 +2,7 @@ import React from 'react'
 import { swap } from '../utils'
 import User from './user'
 
-const Users = ({ users, onDelete }) => {
+const Users = ({ users, ...rest }) => {
   const theadTrasnlate = {
     name: 'Имя',
     qualities: 'Качества',
@@ -37,7 +37,13 @@ const Users = ({ users, onDelete }) => {
         </thead>
         <tbody>
           {users.map((el, idx) => {
-            return <User key={idx} user={el} onDelete={onDelete} />
+            return (
+              <User
+                key={idx}
+                user={el}
+                {...rest}
+              />
+            )
           })}
         </tbody>
       </table>
