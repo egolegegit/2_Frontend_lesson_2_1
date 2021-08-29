@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderPhrase } from '../utils'
+import { renderPhrase } from '../../utils'
 
 const SearchStatus = ({users}) => {
   const titles = ['человек', 'человека', 'человек']

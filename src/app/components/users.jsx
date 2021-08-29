@@ -1,5 +1,5 @@
 import React from 'react'
-import { swap } from '../utils'
+import { swap } from '../../utils'
 import User from './user'
 
 const Users = ({ users, ...rest }) => {
