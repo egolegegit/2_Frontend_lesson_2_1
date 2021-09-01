@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import api from '../api'
-import { extractValue } from '../utils/extractValue'
 
 const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll())
