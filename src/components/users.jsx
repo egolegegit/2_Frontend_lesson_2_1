@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import api from '../api'
+import { extractValue } from '../utils/extractValue'
 
 const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll())
@@ -23,7 +24,7 @@ const Users = () => {
   }
 
   const dataforRendering = (i, j) => {
-    let outputData = users.reduce((acc, obj, idx) => {
+    const outputData = users.reduce((acc, obj, idx) => {
       if (idx === 0) acc.push(swap(Object.keys(obj), i, j))
       acc.push(swap(Object.values(obj), i, j))
       return acc
@@ -66,21 +67,21 @@ const Users = () => {
   const getRow = (item, id) => {
     return (
       <tr key={id}>
-        <td className='col-2'>{item[1]}</td>
-        <td className='col-3'>
+        <td className="col-2">{item[1]}</td>
+        <td className="col-3">
           {item[2].map((el, idx) => (
             <span key={idx} className={`badge bg-${el.color} m-1`}>
               {el.name}
             </span>
           ))}
         </td>
-        <td className='col-2'>{item[3]['name']}</td>
-        <td className='col-2'>{item[4]}</td>
-        <td className='col-1'>{item[5]}</td>
-        <td className='col-1'>
+        <td className="col-2">{item[3].name}</td>
+        <td className="col-2">{item[4]}</td>
+        <td className="col-1">{item[5]}</td>
+        <td className="col-1">
           <button
             onClick={() => handleDelete(item[0])}
-            className='btn btn-danger'
+            className="btn btn-danger"
           >
             delete
           </button>
@@ -94,7 +95,7 @@ const Users = () => {
       return ''
     }
     return (
-      <table className='table table-hover'>
+      <table className="table table-hover">
         <thead>
           <tr>
             {dataRendering[0].slice(1).map((el, idx) => {
