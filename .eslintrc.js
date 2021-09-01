@@ -16,5 +16,9 @@ module.exports = {
     semi: [1, 'never'],
     'comma-dangle': ['error', 'only-multiline'],
     'space-before-function-paren': ['error', 'never'],
+    'no-unused-vars': [
+      'error',
+      { args: 'after-used', ignoreRestSiblings: true },
+    ],
   },
 }

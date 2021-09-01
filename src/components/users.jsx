@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import api from '../api'
+import { useLogger, useInput } from '../utils/utils'
 
 const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll())
@@ -35,7 +36,7 @@ const Users = () => {
   const dataRendering = dataforRendering(2, 3)
 
   const handleDelete = (userId) => {
-    setUsers(users.filter((item, id) => item._id !== userId))
+    setUsers(users.filter((item) => item._id !== userId))
   }
 
   const renderPhrase = (number, titles) => {
@@ -91,7 +92,7 @@ const Users = () => {
 
   const renderTables = () => {
     if (users.length === 0) {
-      return ''
+      return null
     }
     return (
       <table className="table table-hover">
@@ -115,11 +116,23 @@ const Users = () => {
       </table>
     )
   }
+  const input = useInput('')
+
+  useLogger(input.value)
 
   return (
     <>
       {renderTitle()}
       {renderTables()}
+      <div className="d-flex align-items-center justify-content-center">
+        <input type="text" {...input.bind} />
+        <button className="m-2 btn btn-warning" onClick={() => input.clear()}>
+          Очистить
+        </button>
+      </div>
+      <span className="d-flex justify-content-center fw-bold fs-3 text-wrap">
+        {input.value}
+      </span>
     </>
   )
 }
