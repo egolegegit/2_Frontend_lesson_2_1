@@ -1,7 +1,8 @@
 import React from 'react'
-import { renderPhrase } from '../../utils'
+import { renderPhrase } from '../utils/utils'
+import PropTypes from 'prop-types'
 
-const SearchStatus = ({users}) => {
+const SearchStatus = ({ users }) => {
   const titles = ['человек', 'человека', 'человек']
 
   let classesTitle = 'badge bg-'
@@ -19,4 +20,9 @@ const SearchStatus = ({users}) => {
     </h4>
   )
 }
+
+SearchStatus.propTypes = {
+  users: PropTypes.array.isRequired,
+}
+
 export default SearchStatus
