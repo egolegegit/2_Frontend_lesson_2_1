@@ -13,4 +13,6 @@ case 2 / branch transform-input-data
 
 ![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/main/screenshort/Screenshot%202021-08-24%20235407-full.jpg 'Итоговая таблица')
 
-![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/main/screenshort/Screenshot%202021-08-28%20233532-full.jpg 'Итоговая таблица module2_lesson3_task2')​
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/main/screenshort/Screenshot%202021-08-28%20233532-full.jpg 'Итоговая таблица module2_lesson3_task2')
+
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/main/screenshort/SharedScreenshot.jpg 'Итоговая таблица module2_lesson4_task1-2')​
