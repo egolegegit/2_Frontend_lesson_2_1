@@ -2,7 +2,7 @@ export function generateItemFromAPI(count) {
   return new Array(count).fill('').map((_, index) => `Элемент ${index + 1}`)
 }
 
-export function extractValue(value) {
+export function extractValue() {
   const users = {
     1: {
       id: 1,
