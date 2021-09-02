@@ -6,8 +6,9 @@ import Pagination from './pagination'
 import paginate from '../utils/paginate'
 
 const Users = ({ users, ...rest }) => {
+  const pageSize = 5
   const userCount = users.length
-  const pageSize = 4
+  const pageCount = Math.ceil(userCount / pageSize)
   const [currentPage, setCurrentPage] = useState(1)
 
   const theadTrasnlate = {
@@ -28,7 +29,9 @@ const Users = ({ users, ...rest }) => {
     setCurrentPage(pageIdx)
   }
 
-  const usersCrop = paginate(users, currentPage, pageSize)
+  const newCurrentPage = currentPage < pageCount ? currentPage : pageCount
+
+  const usersCrop = paginate(users, newCurrentPage, pageSize)
 
   const renderTables = () => {
     return (
@@ -56,9 +59,9 @@ const Users = ({ users, ...rest }) => {
         )}
 
         <Pagination
-          itemsCount={userCount}
+          userCount={userCount}
           pageSize={pageSize}
-          currentPage={currentPage}
+          currentPage={newCurrentPage}
           onPageChange={handlePageChange}
         />
       </>
