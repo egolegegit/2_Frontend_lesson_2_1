@@ -6,7 +6,7 @@ import Pagination from './pagination'
 import paginate from '../utils/paginate'
 
 const Users = ({ users, ...rest }) => {
-  const pageSize = 5
+  const pageSize = 4
   const userCount = users.length
   const pageCount = Math.ceil(userCount / pageSize)
   const [currentPage, setCurrentPage] = useState(1)
