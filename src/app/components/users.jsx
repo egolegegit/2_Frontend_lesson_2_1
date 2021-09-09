@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import { swap } from '../utils/utils'
 import User from './user'
 import Pagination from './pagination'
-import paginate from '../utils/paginate'
 import GroupList from './groupList'
+import SearchStatus from './searchStatus'
+import paginate from '../utils/paginate'
 import api from '../api'
 
 const Users = ({ users, ...rest }) => {
-  const pageSize = 4
-  const userCount = users.length
-  const pageCount = Math.ceil(userCount / pageSize)
+  const pageSize = 2
   const [currentPage, setCurrentPage] = useState(1)
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
@@ -41,21 +40,36 @@ const Users = ({ users, ...rest }) => {
     setCurrentPage(pageIdx)
   }
 
+  const filterUsers = selectedProf
+    ? users.filter((user) => user.profession === selectedProf)
+    : users
+
+  const userCount = filterUsers.length
+  const pageCount = Math.ceil(userCount / pageSize)
   const newCurrentPage = currentPage < pageCount ? currentPage : pageCount
 
-  const usersCrop = paginate(users, newCurrentPage, pageSize)
+  const usersCrop = paginate(filterUsers, newCurrentPage, pageSize)
+
+  const clearFilter = () => {
+    setSelectedProf()
+  }
 
   const renderTables = () => {
     return (
       <>
+        <SearchStatus users={filterUsers} />
+
         {professions && (
-          <GroupList
-            items={professions}
-            onitemSelect={handleProfessionsSelect}
-            selectedItem={selectedProf}
-            // valueProperty='_id'
-            // contentProperty='name'
-          />
+          <>
+            <GroupList
+              items={professions}
+              onitemSelect={handleProfessionsSelect}
+              selectedItem={selectedProf}
+            />
+            <button className="btn btn-secondary mt-2" onClick={clearFilter}>
+              Очистить
+            </button>
+          </>
         )}
 
         {userCount > 0 && (
