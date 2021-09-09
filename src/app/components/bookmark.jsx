@@ -31,7 +31,11 @@ const Bookmark = ({ id, ontoogleBookmark, usersBookmarks }) => {
     )
   }
 
-  return <div onClick={() => ontoogleBookmark(id)}>{renderBookmark()}</div>
+  return (
+    <div onClick={() => ontoogleBookmark(id)} role="button">
+      {renderBookmark()}
+    </div>
+  )
 }
 
 Bookmark.propTypes = {
