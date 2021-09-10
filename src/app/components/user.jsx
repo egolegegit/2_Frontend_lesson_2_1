@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Qualitie from './qualitie'
 import Bookmark from './bookmark'
 
-const User = ({ user, onDelete, ...rest }) => {
+const User = ({ user, onDelete, bookmark, onToggleBookMark, ...rest }) => {
   return (
     <tr key={user._id}>
       <td className="col-2">{user.name}</td>
@@ -15,7 +15,14 @@ const User = ({ user, onDelete, ...rest }) => {
       <td className="col-2">{user.profession.name}</td>
       <td className="col-2">{user.completedMeetings}</td>
       <td className="col-1">{user.rate}</td>
-      <td className="col-1">{<Bookmark id={user._id} {...rest} />}</td>
+      <td className="col-1">
+        {
+          <Bookmark
+            status={bookmark}
+            onClick={() => onToggleBookMark(user._id)}
+          />
+        }
+      </td>
       <td className="col-1">
         <button
           title="Удалить"
@@ -32,6 +39,8 @@ const User = ({ user, onDelete, ...rest }) => {
 User.propTypes = {
   user: PropTypes.object.isRequired,
   onDelete: PropTypes.func.isRequired,
+  bookmark: PropTypes.bool,
+  onToggleBookMark: PropTypes.func.isRequired,
 }
 
 export default User

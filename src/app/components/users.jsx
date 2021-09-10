@@ -10,13 +10,14 @@ import api from '../api'
 
 const Users = ({ users, ...rest }) => {
   const pageSize = 2
-  const [currentPage, setCurrentPage] = useState(1)
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     api.professions.fetchAll().then((data) => setProfessions(data))
   }, [])
+
   useEffect(() => {
     setCurrentPage(1)
   }, [selectedProf])
@@ -96,8 +97,8 @@ const Users = ({ users, ...rest }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {usersCrop.map((el, idx) => {
-                    return <User key={idx} user={el} {...rest} />
+                  {usersCrop.map((user, idx) => {
+                    return <User key={idx} user={user} bookmark={user.bookmark} {...rest} />
                   })}
                 </tbody>
               </table>

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Bookmark = ({ id, ontoogleBookmark, usersBookmarks }) => {
+const Bookmark = ({ status, ...rest }) => {
   const renderBookmark = () => {
-    if (usersBookmarks.find((user) => user._id === id).bookmark) {
+    if (status) {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -32,16 +32,14 @@ const Bookmark = ({ id, ontoogleBookmark, usersBookmarks }) => {
   }
 
   return (
-    <div onClick={() => ontoogleBookmark(id)} role="button">
+    <div {...rest} role="button">
       {renderBookmark()}
     </div>
   )
 }
 
 Bookmark.propTypes = {
-  id: PropTypes.string.isRequired,
-  ontoogleBookmark: PropTypes.func.isRequired,
-  usersBookmarks: PropTypes.array.isRequired,
+  status: PropTypes.bool,
 }
 
 export default Bookmark
