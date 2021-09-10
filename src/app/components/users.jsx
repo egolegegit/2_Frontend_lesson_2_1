@@ -63,7 +63,7 @@ const Users = ({ users, ...rest }) => {
         <SearchStatus count={userCount} />
         <div className="d-flex flex-row">
           <div className="d-flex flex-column me-4">
-            <span className="list-group-item fw-bold">Фильтр</span>
+            <span className="list-group-item fw-bold border-0">Фильтр</span>
             {professions && (
               <>
                 <GroupList
