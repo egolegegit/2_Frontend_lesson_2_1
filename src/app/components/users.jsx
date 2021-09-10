@@ -59,7 +59,7 @@ const Users = ({ users, ...rest }) => {
 
   const renderTables = () => {
     return (
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column p-4">
         <SearchStatus count={userCount} />
         <div className="d-flex flex-row">
           <div className="d-flex flex-column me-4">
