@@ -59,51 +59,59 @@ const Users = ({ users, ...rest }) => {
 
   const renderTables = () => {
     return (
-      <>
-        <SearchStatus users={filterUsers} />
+      <div className="d-flex flex-column">
+        <SearchStatus count={userCount} />
+        <div className="d-flex flex-row">
+          <div className="d-flex flex-column me-4">
+            <span className="list-group-item fw-bold">Фильтр</span>
+            {professions && (
+              <>
+                <GroupList
+                  items={professions}
+                  onitemSelect={handleProfessionsSelect}
+                  selectedItem={selectedProf}
+                />
+                <button
+                  className="btn btn-secondary mt-2"
+                  onClick={clearFilter}
+                >
+                  Очистить
+                </button>
+              </>
+            )}
+          </div>
+          <div className="d-flex flex-column flex-fill">
+            {userCount > 0 && (
+              <table className="table table-hover">
+                <thead>
+                  <tr>
+                    {getThead().map((el, idx) => {
+                      return (
+                        <th scope={'col'} key={idx}>
+                          {theadTrasnlate[el]}
+                        </th>
+                      )
+                    })}
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {usersCrop.map((el, idx) => {
+                    return <User key={idx} user={el} {...rest} />
+                  })}
+                </tbody>
+              </table>
+            )}
 
-        {professions && (
-          <>
-            <GroupList
-              items={professions}
-              onitemSelect={handleProfessionsSelect}
-              selectedItem={selectedProf}
+            <Pagination
+              userCount={userCount}
+              pageSize={pageSize}
+              currentPage={newCurrentPage}
+              onPageChange={handlePageChange}
             />
-            <button className="btn btn-secondary mt-2" onClick={clearFilter}>
-              Очистить
-            </button>
-          </>
-        )}
-
-        {userCount > 0 && (
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                {getThead().map((el, idx) => {
-                  return (
-                    <th scope={'col'} key={idx}>
-                      {theadTrasnlate[el]}
-                    </th>
-                  )
-                })}
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {usersCrop.map((el, idx) => {
-                return <User key={idx} user={el} {...rest} />
-              })}
-            </tbody>
-          </table>
-        )}
-
-        <Pagination
-          userCount={userCount}
-          pageSize={pageSize}
-          currentPage={newCurrentPage}
-          onPageChange={handlePageChange}
-        />
-      </>
+          </div>
+        </div>
+      </div>
     )
   }
 

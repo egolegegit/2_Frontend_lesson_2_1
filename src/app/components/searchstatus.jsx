@@ -2,17 +2,14 @@ import React from 'react'
 import { renderPhrase } from '../utils/utils'
 import PropTypes from 'prop-types'
 
-const SearchStatus = ({ users }) => {
+const SearchStatus = ({ count }) => {
   const titles = ['человек', 'человека', 'человек']
 
   let classesTitle = 'badge bg-'
-  classesTitle += users.length !== 0 ? 'primary' : 'danger'
+  classesTitle += count !== 0 ? 'primary' : 'danger'
   const texTitle =
-    users.length !== 0
-      ? `${users.length} ${renderPhrase(
-          users.length,
-          titles
-        )} тусанется сегодня с тобой `
+    count !== 0
+      ? `${count} ${renderPhrase(count, titles)} тусанется сегодня с тобой `
       : 'Никто с тобой не тусанет'
   return (
     <h4>
@@ -22,7 +19,7 @@ const SearchStatus = ({ users }) => {
 }
 
 SearchStatus.propTypes = {
-  users: PropTypes.array.isRequired,
+  count: PropTypes.number.isRequired,
 }
 
 export default SearchStatus
