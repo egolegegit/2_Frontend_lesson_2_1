@@ -19,5 +19,6 @@ module.exports = {
       'error',
       { anonymous: 'always', named: 'never' },
     ],
+    indent: ['error', 2, { SwitchCase: 1 }],
   },
 }

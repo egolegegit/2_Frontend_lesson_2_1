@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { swap } from '../utils/utils'
@@ -32,12 +33,11 @@ const Users = ({ users, ...rest }) => {
     profession: 'Профессия',
     completedMeetings: 'Кол-во встреч',
     rate: 'Оценка',
-    favorites: 'Избранное',
+    bookmark: 'Избранное',
   }
 
   const getThead = () => [
-    ...swap(Object.keys(users[0]), 2, 3).slice(1),
-    'favorites',
+    ...new Set([...swap(Object.keys(users[0]), 2, 3).slice(1), 'bookmark']),
   ]
 
   const handlePageChange = (pageIdx) => {
@@ -45,7 +45,10 @@ const Users = ({ users, ...rest }) => {
   }
 
   const filterUsers = selectedProf
-    ? users.filter((user) => user.profession === selectedProf)
+    ? users.filter(
+        (user) =>
+          JSON.stringify(user.profession) === JSON.stringify(selectedProf)
+      )
     : users
 
   const userCount = filterUsers.length
@@ -60,11 +63,11 @@ const Users = ({ users, ...rest }) => {
 
   const renderTables = () => {
     return (
-      <div className="d-flex flex-column p-4">
+      <div className="p-4 d-flex flex-column">
         <SearchStatus count={userCount} />
-        <div className="d-flex flex-row">
+        <div className="flex-row d-flex">
           <div className="d-flex flex-column me-4">
-            <span className="list-group-item fw-bold border-0">Фильтр</span>
+            <span className="border-0 list-group-item fw-bold">Отбор</span>
             {professions && (
               <>
                 <GroupList
@@ -73,7 +76,7 @@ const Users = ({ users, ...rest }) => {
                   selectedItem={selectedProf}
                 />
                 <button
-                  className="btn btn-secondary mt-2"
+                  className="mt-2 btn btn-secondary"
                   onClick={clearFilter}
                 >
                   Очистить
@@ -98,7 +101,14 @@ const Users = ({ users, ...rest }) => {
                 </thead>
                 <tbody>
                   {usersCrop.map((user, idx) => {
-                    return <User key={idx} user={user} bookmark={user.bookmark} {...rest} />
+                    return (
+                      <User
+                        key={idx}
+                        user={user}
+                        bookmark={user.bookmark}
+                        {...rest}
+                      />
+                    )
                   })}
                 </tbody>
               </table>

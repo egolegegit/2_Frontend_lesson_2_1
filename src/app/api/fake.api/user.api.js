@@ -31,6 +31,11 @@ const qualities = {
     name: 'Неуверенный',
     color: 'dark',
   },
+  communicative: {
+    _id: '67rdca3eeb7f6fgeed472202',
+    name: 'Общительный',
+    color: 'success',
+  },
 }
 
 const users = [
@@ -129,6 +134,14 @@ const users = [
     qualities: [qualities.handsome],
     completedMeetings: 434,
     rate: 5,
+  },
+  {
+    _id: '67rdca3eeb7f6fgeed471815',
+    name: 'Илон Кван',
+    profession: professions.programmer,
+    qualities: [qualities.strange, qualities.communicative],
+    completedMeetings: 36,
+    rate: 2.5,
   },
 ]
 
