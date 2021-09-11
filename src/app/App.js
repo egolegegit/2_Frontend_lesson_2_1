@@ -8,7 +8,6 @@ function App() {
   useEffect(async () => {
     const data = await api.users.fetchAll()
     setUsers(() => data)
-    // api.users.fetchAll().then((data) => setUsers(() => data))
   }, [])
 
   const handleDelete = (userId) => {
