@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { swap } from '../utils/utils'
@@ -46,9 +45,9 @@ const Users = ({ users, ...rest }) => {
 
   const filterUsers = selectedProf
     ? users.filter(
-        (user) =>
-          JSON.stringify(user.profession) === JSON.stringify(selectedProf)
-      )
+      (user) =>
+        JSON.stringify(user.profession) === JSON.stringify(selectedProf)
+    )
     : users
 
   const userCount = filterUsers.length
