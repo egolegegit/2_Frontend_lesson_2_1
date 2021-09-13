@@ -5,7 +5,7 @@ export const professionsObject = {
   engineer: { _id: '67rdca3eeb7f6fgeed471822', name: 'Инженер' },
   actor: { _id: '67rdca3eeb7f6fgeed471824', name: 'Актер' },
   cook: { _id: '67rdca3eeb7f6fgeed471829', name: 'Повар' },
-  programmer: { _id: '67rdca3eeb7f6fgeed472829', name: 'Программист' },
+  programmer: { _id: '67rdca3eeb7f6fgeed472839', name: 'Программист' },
 }
 
 export const professions = [
@@ -15,7 +15,7 @@ export const professions = [
   { _id: '67rdca3eeb7f6fgeed471822', name: 'Инженер' },
   { _id: '67rdca3eeb7f6fgeed471824', name: 'Актер' },
   { _id: '67rdca3eeb7f6fgeed471829', name: 'Повар' },
-  { _id: '67rdca3eeb7f6fgeed472829', name: 'Программист' },
+  { _id: '67rdca3eeb7f6fgeed472839', name: 'Программист' },
 ]
 const fetchAll = () =>
   new Promise((resolve) => {
