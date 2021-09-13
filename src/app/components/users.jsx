@@ -47,11 +47,9 @@ const Users = ({ users, ...rest }) => {
     ? users.filter(
         (user) =>
           JSON.stringify(user.profession) === JSON.stringify(selectedProf)
-          // user.profession._id === selectedProf._id
+        // user.profession._id === selectedProf._id
       )
     : users
-
-  // console.log('users', users, 'selectedProf', selectedProf._id)
 
   const userCount = filterUsers.length
   const pageCount = Math.ceil(userCount / pageSize)

@@ -17,7 +17,7 @@ module.exports = {
     'comma-dangle': ['error', 'only-multiline'],
     'space-before-function-paren': [
       'error',
-      { anonymous: 'always', named: 'never' },
+      { anonymous: 'always', named: 'never', asyncArrow: 'always' },
     ],
     indent: 'off',
     // indent: [
