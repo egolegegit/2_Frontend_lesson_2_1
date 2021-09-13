@@ -8,32 +8,50 @@ const GroupList = ({
   onitemSelect,
   selectedItem,
 }) => {
-  const sortItems = Object.keys(items).sort((a, b) => {
-    const nameA = items[a].name.toLowerCase()
-    const nameB = items[b].name.toLowerCase()
-    if (nameA < nameB) {
-      return -1
-    }
+  if (Array.isArray) {
+    const sortItems = Object.keys(items).sort((a, b) => {
+      const nameA = items[a].name.toLowerCase()
+      const nameB = items[b].name.toLowerCase()
+      if (nameA < nameB) {
+        return -1
+      }
 
-    if (nameA > nameB) {
-      return 1
-    }
-    return 0
-  })
+      if (nameA > nameB) {
+        return 1
+      }
+      return 0
+    })
 
+    return (
+      <ul className="list-group">
+        {sortItems.map((item) => (
+          <li
+            key={items[item][valueProperty]}
+            className={
+              'list-group-item' +
+              (items[item] === selectedItem ? ' active' : '')
+            }
+            onClick={() => onitemSelect(items[item])}
+            role="button"
+          >
+            {items[item][contentProperty]}
+          </li>
+        ))}
+      </ul>
+    )
+  }
   return (
     <ul className="list-group">
-      {sortItems.map((item) => (
+      {items.map((item) => (
         <li
-          key={items[item][valueProperty]}
+          key={item[valueProperty]}
           className={
-            'list-group-item list-group-item-action' +
-            (items[item] === selectedItem ? ' active' : '')
+            'list-group-item' + (item === selectedItem ? ' active' : '')
           }
-          onClick={() => onitemSelect(items[item])}
+          onClick={() => onitemSelect(item)}
           role="button"
         >
-          {items[item][contentProperty]}
+          {item[contentProperty]}
         </li>
       ))}
     </ul>

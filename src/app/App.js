@@ -9,8 +9,12 @@ function App() {
     // api.users.fetchAll().then((data) => setUsers(() => data))
     // use async/await variant
     const fetchUsers = async () => {
-      const data = await api.users.fetchAll()
-      setUsers(() => data)
+      try {
+        const data = await api.users.fetchAll()
+        setUsers(() => data)
+      } catch (error) {
+        console.error(error)
+      }
     }
 
     fetchUsers()

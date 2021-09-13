@@ -19,21 +19,22 @@ module.exports = {
       'error',
       { anonymous: 'always', named: 'never', asyncArrow: 'always' },
     ],
-    indent: 'off',
-    // indent: [
-    //   'error',
-    //   2,
-    //   {
-    //     CallExpression: 1,
-    //     FunctionExpression: 1,
-    //     FunctionDeclaration: 1,
-    //     ObjectExpression: 1,
-    //     MemberExpression: 1,
-    //     VariableDeclarator: 1,
-    //     flatTernaryExpressions: true,
-    //     offsetTernaryExpressions: true,
-    //   },
-    // ],
+    // indent: 'off',
+    indent: [
+      'warn',
+      2,
+      {
+        SwitchCase: 1,
+        flatTernaryExpressions: true,
+        offsetTernaryExpressions: true,
+        CallExpression: { arguments: 1 },
+        FunctionExpression: { arguments: 1 },
+        FunctionDeclaration: { arguments: 1 },
+        ObjectExpression: { arguments: 1 },
+        MemberExpression: { arguments: 1 },
+        VariableDeclarator: { arguments: 1 },
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
     'react-hooks/exhaustive-deps': 'warn', // Проверяем зависимости эффекта
   },
