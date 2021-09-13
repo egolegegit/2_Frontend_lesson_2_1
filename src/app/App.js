@@ -5,9 +5,15 @@ import Users from './components/users'
 function App() {
   const [users, setUsers] = useState()
 
-  useEffect(async () => {
-    const data = await api.users.fetchAll()
-    setUsers(() => data)
+  useEffect(() => {
+    // api.users.fetchAll().then((data) => setUsers(() => data))
+    // use async/await variant
+    const fetchUsers = async () => {
+      const data = await api.users.fetchAll()
+      setUsers(() => data)
+    }
+
+    fetchUsers()
   }, [])
 
   const handleDelete = (userId) => {
