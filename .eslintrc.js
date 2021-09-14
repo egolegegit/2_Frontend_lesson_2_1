@@ -13,15 +13,21 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks'],
   rules: {
+    // quotes: ['error', 'single'],
+    // 'no-console': 'off',
+    'member-access': 'off',
+    'jsx-no-lambda': 'off',
+    'jsx-boolean-value': 'off',
+    'no-inner-declarations': 'off',
+    'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
     semi: [1, 'never'],
     'comma-dangle': ['error', 'only-multiline'],
     'space-before-function-paren': [
       'error',
       { anonymous: 'always', named: 'never', asyncArrow: 'always' },
     ],
-    // indent: 'off',
     indent: [
-      'warn',
+      0,
       2,
       {
         SwitchCase: 1,
