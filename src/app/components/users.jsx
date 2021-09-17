@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { swap } from '../utils/utils'
-import User from './user'
 import Pagination from './pagination'
 import GroupList from './groupList'
 import SearchStatus from './searchStatus'
 import paginate from '../utils/paginate'
 import api from '../api'
+import UserTable from './usersTable'
+import _ from 'lodash'
 
 const Users = ({ users, ...rest }) => {
-  const pageSize = 2
+  const pageSize = 8
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
   const [currentPage, setCurrentPage] = useState(1)
+  const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
 
   useEffect(() => {
     api.professions.fetchAll().then((data) => setProfessions(data))
@@ -26,21 +27,12 @@ const Users = ({ users, ...rest }) => {
     setSelectedProf(item)
   }
 
-  const theadTrasnlate = {
-    name: 'Имя',
-    qualities: 'Качества',
-    profession: 'Профессия',
-    completedMeetings: 'Кол-во встреч',
-    rate: 'Оценка',
-    bookmark: 'Избранное',
-  }
-
-  const getThead = () => [
-    ...new Set([...swap(Object.keys(users[0]), 2, 3).slice(1), 'bookmark']),
-  ]
-
   const handlePageChange = (pageIdx) => {
     setCurrentPage(pageIdx)
+  }
+
+  const handleSort = (item) => {
+    setSortBy(item)
   }
 
   const filterUsers = selectedProf
@@ -55,7 +47,9 @@ const Users = ({ users, ...rest }) => {
   const pageCount = Math.ceil(userCount / pageSize)
   const newCurrentPage = currentPage < pageCount ? currentPage : pageCount
 
-  const usersCrop = paginate(filterUsers, newCurrentPage, pageSize)
+  const sortedUsers = _.orderBy(filterUsers, [sortBy.path], [sortBy.order])
+
+  const usersCrop = paginate(sortedUsers, newCurrentPage, pageSize)
 
   const clearFilter = () => {
     setSelectedProf()
@@ -86,32 +80,12 @@ const Users = ({ users, ...rest }) => {
           </div>
           <div className="d-flex flex-column flex-fill">
             {userCount > 0 && (
-              <table className="table table-hover">
-                <thead>
-                  <tr>
-                    {getThead().map((el, idx) => {
-                      return (
-                        <th scope={'col'} key={idx}>
-                          {theadTrasnlate[el]}
-                        </th>
-                      )
-                    })}
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {usersCrop.map((user, idx) => {
-                    return (
-                      <User
-                        key={idx}
-                        user={user}
-                        bookmark={user.bookmark}
-                        {...rest}
-                      />
-                    )
-                  })}
-                </tbody>
-              </table>
+              <UserTable
+                users={usersCrop}
+                onSort={handleSort}
+                selectedSort={sortBy}
+                {...rest}
+              />
             )}
 
             <Pagination

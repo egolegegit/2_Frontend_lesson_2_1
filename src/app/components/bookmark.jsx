@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Bookmark = ({ status, ...rest }) => {
+const BookMark = ({ status, ...rest }) => {
   const renderBookmark = () => {
     if (status) {
       return (
@@ -38,8 +38,8 @@ const Bookmark = ({ status, ...rest }) => {
   )
 }
 
-Bookmark.propTypes = {
+BookMark.propTypes = {
   status: PropTypes.bool,
 }
 
-export default Bookmark
+export default BookMark
