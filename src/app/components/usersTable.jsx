@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // import User from './user'
 // import TableHeader from './tableHeader'
-// import TableBody from './tableBody'
+// import  from './tableBody'
 import BookMark from './bookmark'
 import QualitiesList from './qualitiesList'
 import Table from './table'
@@ -15,7 +15,7 @@ const UserTable = ({
   onDelete,
   ...rest
 }) => {
-  // TODO основа!!! к такой обьект должна возвращать функция getThead
+  // TODO основа!!! такой обьект должна возвращать функция getThead
   const columns = {
     name: { path: 'name', name: 'Имя' },
     qualities: {
@@ -49,16 +49,14 @@ const UserTable = ({
   }
 
   return (
-    <table className="table table-hover">
-      <Table
-        onSort={onSort}
-        selectedSort={selectedSort}
-        columns={columns}
-        data={users}
-      />
-      {/* <TableHeader {...{ onSort, selectedSort, columns }} />
-      <TableBody {...{ columns, data: users }} /> */}
-    </table>
+    // 1 способ
+    // нет доступа к TableHeader, TableBody
+    <Table
+      onSort={onSort}
+      selectedSort={selectedSort}
+      columns={columns}
+      data={users}
+    />
   )
 }
 
