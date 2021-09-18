@@ -1,6 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
+// TODO add css sceleton for loading time
 const GroupList = ({
   items,
   valueProperty,
