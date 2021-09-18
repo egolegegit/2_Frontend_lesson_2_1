@@ -1,10 +1,11 @@
 import React from 'react'
-// import User from './user'
 import PropTypes from 'prop-types'
-import TableHeader from './tableHeader'
-import TableBody from './tableBody'
+// import User from './user'
+// import TableHeader from './tableHeader'
+// import TableBody from './tableBody'
 import BookMark from './bookmark'
 import QualitiesList from './qualitiesList'
+import Table from './table'
 
 const UserTable = ({
   users,
@@ -49,11 +50,18 @@ const UserTable = ({
 
   return (
     <table className="table table-hover">
-      <TableHeader {...{ onSort, selectedSort, columns }} />
-      <TableBody {...{ columns, data: users }} />
+      <Table
+        onSort={onSort}
+        selectedSort={selectedSort}
+        columns={columns}
+        data={users}
+      />
+      {/* <TableHeader {...{ onSort, selectedSort, columns }} />
+      <TableBody {...{ columns, data: users }} /> */}
     </table>
   )
 }
+
 UserTable.propTypes = {
   users: PropTypes.array.isRequired,
   onSort: PropTypes.func.isRequired,
