@@ -5,7 +5,7 @@ import api from '../api'
 import paginate from '../utils/paginate'
 import Pagination from './pagination'
 import GroupList from './groupList'
-import SearchStatus from './searchStatus'
+import SearchStatus from './searchstatus'
 import UserTable from './usersTable'
 import Loader from './loader'
 
