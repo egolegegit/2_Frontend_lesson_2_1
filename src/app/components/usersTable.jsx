@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableHeader from './tableHeader'
-import TableBody from './tableBody'
 import BookMark from './bookmark'
 import QualitiesList from './qualitiesList'
 import Table from './table'
@@ -10,8 +8,8 @@ const UserTable = ({
   users,
   onSort,
   selectedSort,
-  onToggleBookMark,
   onDelete,
+  onToggleBookMark,
   ...rest
 }) => {
   // TODO основа!!! к такой обьект должна возвращать функция getThead
@@ -53,10 +51,7 @@ const UserTable = ({
       selectedSort={selectedSort}
       columns={columns}
       data={users}
-    >
-      <TableHeader {...{ onSort, selectedSort, columns }} />
-      <TableBody {...{ columns, data: users }} />
-    </Table>
+    />
   )
 }
 
