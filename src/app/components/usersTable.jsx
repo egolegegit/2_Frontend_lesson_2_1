@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import BookMark from './bookmark'
 import QualitiesList from './qualitiesList'
@@ -14,7 +15,11 @@ const UserTable = ({
 }) => {
   // TODO основа!!! к такой обьект должна возвращать функция getThead
   const columns = {
-    name: { path: 'name', name: 'Имя' },
+    name: {
+      path: 'name',
+      name: 'Имя',
+      component: (user) => <Link to="/users">{user.name}</Link>,
+    },
     qualities: {
       name: 'Качества',
       component: (users) => <QualitiesList qualities={users.qualities} />,
