@@ -33,6 +33,14 @@ const Users = () => {
     fetchUsers()
   }, [])
 
+  useEffect(() => {
+    api.professions.fetchAll().then((data) => setProfessions(data))
+  }, [])
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [selectedProf])
+
   const handleDelete = (userId) => {
     setUsers(users.filter((item, id) => item._id !== userId))
   }
@@ -47,14 +55,6 @@ const Users = () => {
       })
     )
   }
-
-  useEffect(() => {
-    api.professions.fetchAll().then((data) => setProfessions(data))
-  }, [])
-
-  useEffect(() => {
-    setCurrentPage(1)
-  }, [selectedProf])
 
   const handleProfessionsSelect = (item) => {
     setSelectedProf(item)

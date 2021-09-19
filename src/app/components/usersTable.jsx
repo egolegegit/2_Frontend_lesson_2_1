@@ -18,15 +18,25 @@ const UserTable = ({
     name: {
       path: 'name',
       name: 'Имя',
-      component: (user) => <Link to="/users">{user.name}</Link>,
+      component: (user) => <Link to={`/users/${user._id}`}>{user.name}</Link>,
+      classname: 'col-2',
     },
     qualities: {
       name: 'Качества',
       component: (users) => <QualitiesList qualities={users.qualities} />,
+      classname: 'col-2',
     },
-    profession: { path: 'profession.name', name: 'Профессия' },
-    completedMeetings: { path: 'completedMeetings', name: 'Кол-во встреч' },
-    rate: { path: 'rate', name: 'Оценка' },
+    profession: {
+      path: 'profession.name',
+      name: 'Профессия',
+      classname: 'col-2',
+    },
+    completedMeetings: {
+      path: 'completedMeetings',
+      name: 'Кол-во встреч',
+      classname: 'col-2',
+    },
+    rate: { path: 'rate', name: 'Оценка', classname: 'col-2' },
     bookmark: {
       path: 'bookmark',
       name: 'Избранное',
@@ -36,6 +46,7 @@ const UserTable = ({
           onClick={() => onToggleBookMark(user._id)}
         />
       ),
+      classname: 'col-2',
     },
     delete: {
       component: (user) => (
@@ -47,6 +58,7 @@ const UserTable = ({
           x
         </button>
       ),
+      classname: 'col-1',
     },
   }
 
