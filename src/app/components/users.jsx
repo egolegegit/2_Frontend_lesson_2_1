@@ -135,7 +135,7 @@ const Users = () => {
       )
     }
 
-    return <>{renderTables()}</>
+    return renderTables()
   }
   return <Loader />
 }

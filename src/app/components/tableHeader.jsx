@@ -3,15 +3,6 @@ import SortIcon from './sortIcon'
 import PropTypes from 'prop-types'
 
 const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {
-  // const theadTrasnlate = {
-  //   name: 'Имя',
-  //   qualities: 'Качества',
-  //   profession: 'Профессия',
-  //   completedMeetings: 'Кол-во встреч',
-  //   rate: 'Оценка',
-  //   bookmark: 'Избранное',
-  // }
-
   const handleSort = (item) => {
     if (selectedSort.path === item) {
       onSort({

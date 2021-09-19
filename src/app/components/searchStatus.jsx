@@ -17,7 +17,6 @@ const SearchStatus = ({ count }) => {
     </h4>
   )
 }
-// test
 
 SearchStatus.propTypes = {
   count: PropTypes.number.isRequired,

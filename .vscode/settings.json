@@ -1,6 +1,5 @@
 {
   "todo-tree.highlights.customHighlight": {
-
     "BUG": {
       "icon": "bug"
     },
@@ -8,7 +7,5 @@
       "icon": "flame"
     }
   },
-  "todo-tree.highlights.defaultHighlight": {
-  
-  }
+  "todo-tree.highlights.defaultHighlight": {}
 }
