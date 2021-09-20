@@ -18,7 +18,11 @@ const UserTable = ({
     name: {
       path: 'name',
       name: 'Имя',
-      component: (user) => <Link to={`/users/${user._id}`}>{user.name}</Link>,
+      component: (user) => (
+        <Link to={`/users/${user._id}`} className="nav-item nav-link">
+          {user.name}
+        </Link>
+      ),
       classname: 'col-2',
     },
     qualities: {
