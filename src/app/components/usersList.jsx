@@ -9,7 +9,7 @@ import SearchStatus from './searchStatus'
 import UserTable from './usersTable'
 import Loader from './loader'
 
-const Users = () => {
+const UsersList = () => {
   const pageSize = 8
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
@@ -140,6 +140,6 @@ const Users = () => {
   return <Loader />
 }
 
-Users.propTypes = { users: PropTypes.array }
+UsersList.propTypes = { users: PropTypes.array }
 
-export default Users
+export default UsersList

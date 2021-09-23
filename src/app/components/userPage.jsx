@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import api from '../api'
 import Loader from './loader'
-import Qualitie from './qualitie'
+import QualitiesList from './qualitiesList'
 
 const UserPage = () => {
   const params = useParams()
@@ -31,9 +31,7 @@ const UserPage = () => {
             <h2 className="card-title">{user.name}</h2>
             <h5 className="mb-2 card-subtitle text-muted">
               Качества:
-              {user.qualities.map((el, idx) => (
-                <Qualitie key={idx} qualitie={el} />
-              ))}
+              <QualitiesList qualities={user.qualities} />
             </h5>
             <h5>{`Профессия: ${user.profession.name}`}</h5>
             <h5>{`Кол-во встреч: ${user.completedMeetings}`}</h5>
