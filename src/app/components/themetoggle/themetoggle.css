@@ -1,0 +1,79 @@
+:root {
+  --black: #333333;
+  --white: #f5f5f5;
+  --backround: var(--white);
+  --foreground: var(--black);
+  --transition: 0.5s ease;
+}
+
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.toggle-wrapper {
+  width: 60px;
+  display: block;
+}
+
+.toggle {
+  height: 30px;
+  width: 60px;
+  background: var(--black);
+  border-radius: 15px;
+  padding: 4px;
+  position: relative;
+  /* Optional to center the toggle */
+  margin: auto;
+  cursor: pointer;
+  background: var(--foreground);
+  transition: background var(--transition);
+}
+
+.toggle::before {
+  content: '';
+  display: block;
+  height: 21px;
+  width: 21px;
+  border-radius: 10px;
+  background: var(--white);
+  position: absolute;
+  z-index: 2;
+  transform: translate(0);
+  background: var(--background);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.toggle.enabled::before {
+  transform: translateX(32px);
+}
+
+.toggle input {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+.toggle .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 px;
+}
+
+.toggle .icons svg {
+  height: 20px;
+  width: 20px;
+  z-index: 0;
+  fill: var(--background);
+}
+
+.toggle .icons svg g {
+  fill: var(--background);
+}
