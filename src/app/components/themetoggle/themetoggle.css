@@ -6,6 +6,27 @@
   --transition: 0.5s ease;
 }
 
+html {
+  background: var(--white);
+  color: var(--foreground);
+  transition: color var(--transition);
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: var(--black);
+  transform: translateX(-100%);
+  transition: transform var(--transition);
+  z-index: 0;
+}
+
+.dark::before {
+  transform: translateX(0);
+}
+
 .hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);

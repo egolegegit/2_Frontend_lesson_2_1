@@ -9,21 +9,21 @@ const NavBar = () => {
       <NavLink
         exact
         to="/"
-        className="nav-item nav-link rounded-2"
+        className="nav-item nav-link rounded-2 z-10 dark:text-white"
         activeClassName="bg-secondary bg-opacity-25"
       >
         Main
       </NavLink>
       <NavLink
         to="/login"
-        className="nav-item nav-link rounded-2"
+        className="nav-item nav-link rounded-2 z-10 dark:text-white"
         activeClassName="bg-secondary bg-opacity-25"
       >
         Login
       </NavLink>
       <NavLink
         to="/users"
-        className="nav-item nav-link rounded-2"
+        className="nav-item nav-link rounded-2 z-10 dark:text-white"
         activeClassName="bg-secondary bg-opacity-25"
       >
         Users
