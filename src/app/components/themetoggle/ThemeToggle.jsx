@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SunIcon from './SunIcon'
 import MoonIcon from './MoonIcon'
-import './themetoggle.css'
+import './themetoggle.scss'
 
 const ThemeToggle = () => {
   const [isEnabled, setIsEnabled] = useState(true)
