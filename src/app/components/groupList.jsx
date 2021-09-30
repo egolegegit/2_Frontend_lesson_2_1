@@ -1,14 +1,7 @@
-import React from 'react'
 import { PropTypes } from 'prop-types'
 
 // TODO add css sceleton for loading time
-const GroupList = ({
-  items,
-  valueProperty,
-  contentProperty,
-  onitemSelect,
-  selectedItem,
-}) => {
+const GroupList = ({ items, valueProperty, contentProperty, onitemSelect, selectedItem }) => {
   if (Array.isArray) {
     const sortItems = Object.keys(items).sort((a, b) => {
       const nameA = items[a].name.toLowerCase()
@@ -33,8 +26,7 @@ const GroupList = ({
               (items[item] === selectedItem ? ' active' : '')
             }
             onClick={() => onitemSelect(items[item])}
-            role="button"
-          >
+            role="button">
             {items[item][contentProperty]}
           </li>
         ))}
@@ -46,12 +38,9 @@ const GroupList = ({
       {items.map((item) => (
         <li
           key={item[valueProperty]}
-          className={
-            'list-group-item' + (item === selectedItem ? ' active' : '')
-          }
+          className={'list-group-item' + (item === selectedItem ? ' active' : '')}
           onClick={() => onitemSelect(item)}
-          role="button"
-        >
+          role="button">
           {item[contentProperty]}
         </li>
       ))}
@@ -61,7 +50,7 @@ const GroupList = ({
 
 GroupList.defaultProps = {
   valueProperty: '_id',
-  contentProperty: 'name',
+  contentProperty: 'name'
 }
 
 GroupList.propTypes = {
@@ -69,7 +58,7 @@ GroupList.propTypes = {
   valueProperty: PropTypes.string.isRequired,
   contentProperty: PropTypes.string.isRequired,
   onitemSelect: PropTypes.func,
-  selectedItem: PropTypes.object,
+  selectedItem: PropTypes.object
 }
 
 export default GroupList

@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 
@@ -31,7 +30,7 @@ const TableBody = ({ data, columns }) => {
 
 TableBody.propTypes = {
   columns: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired
 }
 
 export default TableBody

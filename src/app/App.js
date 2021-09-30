@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from './components/navBar'
 import Users from './layouts/users'

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import api from '../api'
@@ -42,7 +42,7 @@ const UsersList = () => {
   }, [selectedProf])
 
   const handleDelete = (userId) => {
-    setUsers(users.filter((item, id) => item._id !== userId))
+    setUsers(users.filter((item) => item._id !== userId))
   }
 
   const handleToggleBookMark = (id) => {
@@ -71,8 +71,7 @@ const UsersList = () => {
   if (users) {
     const filterUsers = selectedProf
       ? users.filter(
-          (user) =>
-            JSON.stringify(user.profession) === JSON.stringify(selectedProf)
+          (user) => JSON.stringify(user.profession) === JSON.stringify(selectedProf)
           // user.profession._id === selectedProf._id
         )
       : users
@@ -103,10 +102,7 @@ const UsersList = () => {
                     onitemSelect={handleProfessionsSelect}
                     selectedItem={selectedProf}
                   />
-                  <button
-                    className="mt-2 btn btn-secondary"
-                    onClick={clearFilter}
-                  >
+                  <button className="mt-2 btn btn-secondary" onClick={clearFilter}>
                     Очистить
                   </button>
                 </>

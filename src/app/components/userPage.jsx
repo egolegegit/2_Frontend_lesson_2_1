@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import api from '../api'
 import Loader from './loader'
@@ -39,10 +39,7 @@ const UserPage = () => {
             {/* <Link className="mt-2 btn btn-secondary w-30" to="/users">
               Все пользователи
             </Link> */}
-            <button
-              className="mt-2 btn btn-secondary w-30"
-              onClick={() => history.push('/users')}
-            >
+            <button className="mt-2 btn btn-secondary w-30" onClick={() => history.push('/users')}>
               Все пользователи
             </button>
           </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { renderPhrase } from '../utils/utils'
 import PropTypes from 'prop-types'
 
@@ -19,7 +18,7 @@ const SearchStatus = ({ count }) => {
 }
 
 SearchStatus.propTypes = {
-  count: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired
 }
 
 export default SearchStatus
