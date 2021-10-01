@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import _ from 'lodash'
@@ -18,7 +19,8 @@ const Pagination = ({ onPageChange, userCount, pageSize, currentPage }) => {
             key={i}
             className={'page-item ' + (page === currentPage ? 'active' : '')}
             onClick={() => onPageChange(page)}
-            role="button">
+            role="button"
+          >
             <a className="page-link">{page}</a>
           </li>
         ))}

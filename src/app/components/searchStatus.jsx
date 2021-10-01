@@ -1,3 +1,4 @@
+import React from 'react'
 import { renderPhrase } from '../utils/utils'
 import PropTypes from 'prop-types'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import SortIcon from './sortIcon'
 import PropTypes from 'prop-types'
 
@@ -21,7 +22,8 @@ const TableHeader = ({ onSort, selectedSort, columns }) => {
             onClick={columns[column].path ? () => handleSort(columns[column].path) : undefined}
             scope={'col'}
             {...{ role: columns[column].path && 'button' }}
-            key={column}>
+            key={column}
+          >
             {columns[column].name}
             {columns[column].path && columns[column].path === selectedSort.path && (
               <SortIcon selectedSort={selectedSort} />

@@ -1,3 +1,4 @@
+import React from 'react'
 import { PropTypes } from 'prop-types'
 
 // TODO add css sceleton for loading time
@@ -26,7 +27,8 @@ const GroupList = ({ items, valueProperty, contentProperty, onitemSelect, select
               (items[item] === selectedItem ? ' active' : '')
             }
             onClick={() => onitemSelect(items[item])}
-            role="button">
+            role="button"
+          >
             {items[item][contentProperty]}
           </li>
         ))}
@@ -40,7 +42,8 @@ const GroupList = ({ items, valueProperty, contentProperty, onitemSelect, select
           key={item[valueProperty]}
           className={'list-group-item' + (item === selectedItem ? ' active' : '')}
           onClick={() => onitemSelect(item)}
-          role="button">
+          role="button"
+        >
           {item[contentProperty]}
         </li>
       ))}
