@@ -4,7 +4,7 @@ import ThemeToggle from './themetoggle/ThemeToggle'
 
 const NavBar = () => {
   return (
-    <div className="justify-end pt-1 nav pe-4 align-items-center">
+    <div className="justify-end pt-1 h-14 nav pe-4 align-items-center">
       <ThemeToggle />
       <NavLink
         exact

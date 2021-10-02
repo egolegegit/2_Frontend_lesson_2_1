@@ -17,7 +17,7 @@ const TableBody = ({ data, columns }) => {
   return (
     <tbody>
       {data.map((item) => (
-        <tr key={item._id}>
+        <tr key={item._id} className="dark:text-white dark:border-green-300 dark:hover:bg-gray-600 dark:hover:text-white" >
           {Object.keys(columns).map((column) => (
             <td className={columns[column].classname} key={column}>
               {renderContent(item, column)}

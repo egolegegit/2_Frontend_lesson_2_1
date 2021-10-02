@@ -25,3 +25,10 @@ code {
 #root {
   position: relative;
 }
+
+.user-conteiner,
+.main-page-container,
+.login-page-container,
+.users-page-container {
+  height: calc(100vh - theme('spacing.14'));
+}

@@ -91,7 +91,7 @@ const UsersList = () => {
 
     const renderTables = () => {
       return (
-        <div className="p-4 d-flex flex-column">
+        <div className="p-4 d-flex flex-column users-page-container">
           <SearchStatus count={userCount} />
           <div className="flex-row d-flex">
             <div className="d-flex flex-column me-4">
