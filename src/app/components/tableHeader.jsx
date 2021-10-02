@@ -28,7 +28,7 @@ const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {
             {...{ role: columns[column].path && 'button' }}
             key={column}
           >
-            {columns[column].name}
+            <span>{columns[column].name}</span>
             {columns[column].path &&
               columns[column].path === selectedSort.path && (
                 <SortIcon selectedSort={selectedSort} />
