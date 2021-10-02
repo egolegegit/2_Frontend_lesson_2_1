@@ -1,5 +1,5 @@
 import React from 'react'
-import SortIcon from './sortIcon'
+import SortIcon from './sortIcon/sortIcon'
 import PropTypes from 'prop-types'
 
 const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {
@@ -28,11 +28,13 @@ const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {
             {...{ role: columns[column].path && 'button' }}
             key={column}
           >
-            <span>{columns[column].name}</span>
-            {columns[column].path &&
-              columns[column].path === selectedSort.path && (
-                <SortIcon selectedSort={selectedSort} />
-              )}
+            <span>
+              {columns[column].name}
+              {columns[column].path &&
+                columns[column].path === selectedSort.path && (
+                  <SortIcon selectedSort={selectedSort} />
+                )}
+            </span>
           </th>
         ))}
       </tr>
