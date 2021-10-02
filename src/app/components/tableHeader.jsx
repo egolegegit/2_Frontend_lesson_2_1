@@ -28,7 +28,7 @@ const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {
             {...{ role: columns[column].path && 'button' }}
             key={column}
           >
-            <span>
+            <span className="flex items-center">
               {columns[column].name}
               {columns[column].path &&
                 columns[column].path === selectedSort.path && (
