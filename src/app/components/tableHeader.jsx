@@ -16,7 +16,7 @@ const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {
 
   return (
     <thead>
-      <tr>
+      <tr className>
         {Object.keys(columns).map((column) => (
           <th
             onClick={

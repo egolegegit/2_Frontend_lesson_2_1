@@ -29,7 +29,7 @@ const GroupList = ({
           <li
             key={items[item][valueProperty]}
             className={
-              'list-group-item list-group-item-action' +
+              'hover-link px-2 py-2 dark:text-white' +
               (items[item] === selectedItem ? ' active' : '')
             }
             onClick={() => onitemSelect(items[item])}
@@ -48,7 +48,8 @@ const GroupList = ({
           key={item[valueProperty]}
           className={
             'list-group-item' +
-            (item === selectedItem ? ' active' : '') + ' hover-link'
+            (item === selectedItem ? ' active' : '') +
+            ' hover-link'
           }
           onClick={() => onitemSelect(item)}
           role="button"

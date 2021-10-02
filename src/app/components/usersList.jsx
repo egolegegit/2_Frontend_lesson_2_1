@@ -95,7 +95,9 @@ const UsersList = () => {
           <SearchStatus count={userCount} />
           <div className="flex-row d-flex">
             <div className="d-flex flex-column me-4">
-              <span className="border-0 list-group-item fw-bold">Отбор</span>
+              <span className="px-2 py-2 border-0 fw-bold dark:text-green-200">
+                Отбор
+              </span>
               {professions && (
                 <>
                   <GroupList
@@ -104,7 +106,7 @@ const UsersList = () => {
                     selectedItem={selectedProf}
                   />
                   <button
-                    className="mt-2 btn btn-secondary"
+                    className="mt-2 btn btn-secondary dark:bg-gray-600"
                     onClick={clearFilter}
                   >
                     Очистить

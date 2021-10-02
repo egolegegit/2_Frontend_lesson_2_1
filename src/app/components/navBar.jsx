@@ -9,22 +9,22 @@ const NavBar = () => {
       <NavLink
         exact
         to="/"
-        className="z-10 nav-item nav-link rounded-2 dark:text-white hover-link"
-        activeClassName="bg-secondary bg-opacity-25"
+        className="z-0 px-3 py-2 no-underline dark:text-white hover-link"
+        activeClassName="dark:focus:text-green-200 dark:bg-gray-600 bg-gray-300"
       >
         Main
       </NavLink>
       <NavLink
         to="/login"
-        className="z-10 nav-item nav-link rounded-2 dark:text-white hover-link"
-        activeClassName="bg-secondary bg-opacity-25"
+        className="z-0 px-3 py-2 no-underline dark:text-white hover-link"
+        activeClassName="dark:focus:text-green-200 dark:bg-gray-600 bg-gray-300"
       >
         Login
       </NavLink>
       <NavLink
         to="/users"
-        className="z-10 nav-item nav-link rounded-2 dark:text-white hover-link"
-        activeClassName="bg-secondary bg-opacity-25"
+        className="z-0 px-3 py-2 no-underline dark:text-white hover-link"
+        activeClassName="dark:focus:text-green-200 dark:bg-gray-600 bg-gray-300"
       >
         Users
       </NavLink>

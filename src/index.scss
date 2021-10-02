@@ -4,7 +4,7 @@
 
 @layer components {
   .hover-link {
-    @apply rounded bg-opacity-10 hover:bg-gray-300 dark:hover:bg-gray-600;
+    @apply rounded hover:bg-gray-300 dark:hover:text-white dark:hover:bg-gray-600;
   }
 }
 
@@ -20,4 +20,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  position: relative;
 }
