@@ -94,7 +94,7 @@ const UsersList = () => {
         <div className="p-4 d-flex flex-column users-page-container">
           <SearchStatus count={userCount} />
           <div className="flex-row d-flex">
-            <div className="d-flex flex-column me-4">
+            <div className="mt-2 d-flex flex-column me-4">
               <span className="px-2 py-2 border-0 fw-bold dark:text-green-200">
                 Отбор
               </span>

@@ -19,7 +19,10 @@ const UserTable = ({
       path: 'name',
       name: 'Имя',
       component: (user) => (
-        <Link to={`/users/${user._id}`} className="nav-item nav-link">
+        <Link
+          to={`/users/${user._id}`}
+          className="no-underline dark:hover:underline dark:text-green-300 dark:hover:text-green-300"
+        >
           {user.name}
         </Link>
       ),

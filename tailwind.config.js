@@ -7,7 +7,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      underline: ['dark'],
+    },
   },
   plugins: [require('@tailwindcss/typography'), plugin],
 }
