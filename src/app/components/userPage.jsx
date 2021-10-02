@@ -26,9 +26,9 @@ const UserPage = () => {
   if (user) {
     return (
       <div className="flex flex-col w-full p-4 user-conteiner">
-        <div className="mb-3 w-50">
+        <div className="flex mb-3">
           <div className="rounded dark:text-white">
-            <h2 className="card-title">{user.name}</h2>
+            <h2 className="mb-4 card-title dark:text-green-300">{user.name}</h2>
             <h5 className="mb-2 card-subtitle dark:text-green-300">
               <span className="dark:text-green-300">Качества: </span>
               <QualitiesList qualities={user.qualities} />
