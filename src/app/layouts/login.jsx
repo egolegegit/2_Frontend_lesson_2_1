@@ -5,12 +5,16 @@ const Login = () => {
   const [data, setData] = useState({ email: '', password: '' })
 
   const handleChange = ({ target }) => {
-    console.log(target.value)
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(data)
+  }
+
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <TextField
         label="Email"
         name="email"
@@ -19,11 +23,11 @@ const Login = () => {
       />
       <TextField
         label="password"
-        type="text"
         name="password"
         value={data.password}
         onChange={handleChange}
       />
+      <button>Submit</button>
     </form>
   )
 }
