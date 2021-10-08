@@ -1,16 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '../components/textField'
 
 const Login = () => {
   const [data, setData] = useState({ email: '', password: '' })
+  const [errors, setErrors] = useState()
 
   const handleChange = ({ target }) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
 
+  useEffect(() => {
+    validate()
+  }, [data])
+
+  const validate = () => {
+    const errors = {}
+    for (const fieldName in data) {
+      if (data[fieldName].trim() === '') {
+        errors[fieldName] = `${fieldName} is required`
+      }
+    }
+    setErrors(errors)
+    return Object.keys(errors).length === 0 || false
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(data)
+    const isValid = validate()
+
+    if (!isValid) return
+    console.log(errors, data)
   }
 
   return (
