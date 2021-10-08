@@ -11,8 +11,11 @@ const Login = () => {
   }
 
   const validatorConfig = {
-    email: { isRequired: { message: 'Please enter a valid email address' } },
-    password: { isRequired: { message: 'Please enter a valid' } },
+    email: {
+      isRequired: { message: 'Please enter a valid email address' },
+      isEmail: { message: 'Email address entered incorrectly' },
+    },
+    password: { isRequired: { message: 'Please enter a valid password' } },
   }
 
   useEffect(() => {
