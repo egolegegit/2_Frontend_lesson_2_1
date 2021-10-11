@@ -7,18 +7,16 @@ import Main from './layouts/main'
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <Switch>
-        <Route path="/login" component={Login} />
-        {/* <Route
-          path="/users/:userId"
-          render={(props) => <UserPage {...props} />}
-        /> */}
-        <Route path="/users/:userId?" component={Users} />
-        <Route path="/" component={Main} />
-        <Redirect to="/" />
-      </Switch>
+    <div className="layout-app">
+      <div>
+        <NavBar />
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/users/:userId?" component={Users} />
+          <Route path="/" component={Main} />
+          <Redirect to="/" />
+        </Switch>
+      </div>
     </div>
   )
 }

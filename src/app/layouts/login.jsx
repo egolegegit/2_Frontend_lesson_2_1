@@ -12,11 +12,11 @@ const Login = () => {
 
   const validatorConfig = {
     email: {
-      isRequired: { message: 'Please enter a valid email address' },
+      isRequired: { message: '* Please enter a valid email address' },
       isEmail: { message: 'Email address entered incorrectly' },
     },
     password: {
-      isRequired: { message: 'Please enter a valid password' },
+      isRequired: { message: '* Please enter a valid password' },
       isCapitalSymbol: { message: 'Password must contain 1 capital letter' },
       isContainDigit: { message: 'password must contain at least 1 number' },
       isMin: {
@@ -37,6 +37,8 @@ const Login = () => {
     return Object.keys(errors).length === 0
   }
 
+  const isValid = Object.keys(errors).length === 0
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const isValid = validate()
@@ -46,23 +48,39 @@ const Login = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        label="Email"
-        name="email"
-        value={data.email}
-        onChange={handleChange}
-        error={errors.email}
-      />
-      <TextField
-        label="password"
-        name="password"
-        value={data.password}
-        onChange={handleChange}
-        error={errors.password}
-      />
-      <button>Submit</button>
-    </form>
+    <div className="layout-content">
+      <h4>Login</h4>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center text-center md:w-2/5 lg:w-1/4"
+      >
+        <TextField
+          label="Email"
+          name="email"
+          value={data.email}
+          onChange={handleChange}
+          error={errors.email}
+        />
+        <TextField
+          label="password"
+          name="password"
+          type={'password'}
+          value={data.password}
+          onChange={handleChange}
+          error={errors.password}
+        />
+        <button
+          disabled={!isValid}
+          className={` 
+            bg-gray-400 mt-8 border rounded-xl border-transparent p-2 hover:text-white w-2/4 text-white ${
+              isValid ? 'hover:bg-blue-700 text-white animate-pulse' : ''
+            } 
+          `}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   )
 }
 

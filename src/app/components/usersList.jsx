@@ -8,6 +8,8 @@ import GroupList from './groupList'
 import SearchStatus from './searchStatus'
 import UserTable from './usersTable'
 import Loader from './loader'
+import TextField from './textField'
+import searchUsersbyName from '../utils/searchBySrting'
 
 const UsersList = () => {
   const pageSize = 8
@@ -15,6 +17,7 @@ const UsersList = () => {
   const [selectedProf, setSelectedProf] = useState()
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
+  const [searchData, setSearchData] = useState('')
 
   const [users, setUsers] = useState()
 
@@ -58,6 +61,7 @@ const UsersList = () => {
 
   const handleProfessionsSelect = (item) => {
     setSelectedProf(item)
+    setSearchData('')
   }
 
   const handlePageChange = (pageIdx) => {
@@ -68,14 +72,26 @@ const UsersList = () => {
     setSortBy(item)
   }
 
+  const handleChange = ({ target }) => {
+    setSelectedProf()
+    setSearchData((prevState) => target.value)
+  }
+
+  const clearFilter = () => {
+    setSelectedProf()
+    setSearchData('')
+  }
+
   if (users) {
-    const filterUsers = selectedProf
+    let filterUsers = selectedProf
       ? users.filter(
           (user) =>
             JSON.stringify(user.profession) === JSON.stringify(selectedProf)
           // user.profession._id === selectedProf._id
         )
       : users
+
+    filterUsers = searchUsersbyName(filterUsers, searchData)
 
     const userCount = filterUsers.length
     const pageCount = Math.ceil(userCount / pageSize)
@@ -85,13 +101,9 @@ const UsersList = () => {
 
     const usersCrop = paginate(sortedUsers, newCurrentPage, pageSize)
 
-    const clearFilter = () => {
-      setSelectedProf()
-    }
-
     const renderTables = () => {
       return (
-        <div className="p-4 d-flex flex-column users-page-container">
+        <div className="my-4 d-flex flex-column users-page-container">
           <SearchStatus count={userCount} />
           <div className="flex-row d-flex">
             <div className="mt-2 d-flex flex-column me-4">
@@ -114,8 +126,15 @@ const UsersList = () => {
                 </>
               )}
             </div>
-            <div className="d-flex flex-column flex-fill">
-              {userCount > 0 && (
+            {userCount > 0 && (
+              <div className="d-flex flex-column flex-fill">
+                <TextField
+                  label=""
+                  name="search"
+                  value={searchData}
+                  placeholder={'search by name ...'}
+                  onChange={handleChange}
+                />
                 <UserTable
                   users={usersCrop}
                   onSort={handleSort}
@@ -123,15 +142,14 @@ const UsersList = () => {
                   onDelete={handleDelete}
                   onToggleBookMark={handleToggleBookMark}
                 />
-              )}
-
-              <Pagination
-                userCount={userCount}
-                pageSize={pageSize}
-                currentPage={newCurrentPage}
-                onPageChange={handlePageChange}
-              />
-            </div>
+                <Pagination
+                  userCount={userCount}
+                  pageSize={pageSize}
+                  currentPage={newCurrentPage}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            )}
           </div>
         </div>
       )
