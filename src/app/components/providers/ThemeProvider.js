@@ -52,32 +52,6 @@ export const ThemeProvider = ({ initialTheme, children }) => {
     rawSetTheme(theme)
   }, [theme])
 
-  // const updateTheme = (isDarkEnabled) => {
-  //   // Get all available styles
-  //   const styles = getComputedStyle(document.body)
-
-  //   // Get the --black and --white variable values
-  //   const black = styles.getPropertyValue('--black')
-  //   const white = styles.getPropertyValue('--white')
-
-  //   const docEl = document.documentElement
-  //   const htmlEl = document.querySelector('html')
-
-  //   if (isDarkEnabled) {
-  //     docEl.style.setProperty('--background', black)
-  //     docEl.style.setProperty('--foreground', white)
-  //     htmlEl.classList.remove('dark')
-  //   } else {
-  //     docEl.style.setProperty('--background', white)
-  //     docEl.style.setProperty('--foreground', black)
-  //     htmlEl.classList.add('dark')
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   updateTheme(isEnabled)
-  // }, [isEnabled])
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
@@ -86,6 +60,6 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 }
 
 ThemeProvider.propTypes = {
-  initialTheme: PropTypes.array,
+  initialTheme: PropTypes.string,
   children: PropTypes.object,
 }
