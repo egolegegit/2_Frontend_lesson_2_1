@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="pt-40 layout-content">
-      <dib className="flex flex-col items-center w-full rounded shadow p-14 wrapper-form sm:w-2/3 md:w-2/5 lg:w-2/6 dark:border-green-400 border-1">
+      <div className="flex flex-col items-center w-full rounded shadow p-14 wrapper-form sm:w-2/3 md:w-2/5 lg:w-2/6 dark:border-green-400 border-1">
         <h2>Login</h2>
         <form
           onSubmit={handleSubmit}
@@ -81,7 +81,7 @@ const Login = () => {
             Submit
           </button>
         </form>
-      </dib>
+      </div>
     </div>
   )
 }

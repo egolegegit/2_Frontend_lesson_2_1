@@ -1,45 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../../components/contexts/theme-context'
 import SunIcon from './SunIcon'
 import MoonIcon from './MoonIcon'
 import './themetoggle.scss'
 
 const ThemeToggle = () => {
-  const [isEnabled, setIsEnabled] = useState(true)
+  const themeContext = useContext(ThemeContext)
+  const { theme, setTheme } = themeContext
+
   const toggleState = () => {
-    setIsEnabled((prevState) => !prevState)
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
-
-  const updateTheme = (isDarkEnabled) => {
-    // Get all available styles
-    const styles = getComputedStyle(document.body)
-
-    // Get the --black and --white variable values
-    const black = styles.getPropertyValue('--black')
-    const white = styles.getPropertyValue('--white')
-
-    const docEl = document.documentElement
-    const htmlEl = document.querySelector('html')
-
-    if (isDarkEnabled) {
-      docEl.style.setProperty('--background', black)
-      docEl.style.setProperty('--foreground', white)
-      htmlEl.classList.remove('dark')
-    } else {
-      docEl.style.setProperty('--background', white)
-      docEl.style.setProperty('--foreground', black)
-      htmlEl.classList.add('dark')
-    }
-  }
-
-  useEffect(() => {
-    updateTheme(isEnabled)
-  }, [isEnabled])
 
   return (
     <label className="toggle-wrapper me-3" htmlFor="toggle">
-      <div className={`toggle ${isEnabled ? 'enabled' : 'disabled'}`}>
+      <div className={`toggle ${theme === 'dark' ? 'enabled' : 'disabled'}`}>
         <span className="hidden">
-          {isEnabled ? 'Enable Light Mode' : 'Enable Dark Mode'}
+          {theme === 'dark' ? 'Enable Light Mode' : 'Enable Dark Mode'}
         </span>
         <div className="icons">
           <SunIcon />
@@ -49,7 +26,7 @@ const ThemeToggle = () => {
           id="toggle"
           name="toggle"
           type="checkbox"
-          defaultChecked={isEnabled}
+          defaultChecked={theme === 'dark'}
           onClick={toggleState}
         />
       </div>
