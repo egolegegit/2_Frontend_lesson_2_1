@@ -48,38 +48,40 @@ const Login = () => {
   }
 
   return (
-    <div className="layout-content">
-      <h4>Login</h4>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col items-center text-center md:w-2/5 lg:w-1/4"
-      >
-        <TextField
-          label="Email"
-          name="email"
-          value={data.email}
-          onChange={handleChange}
-          error={errors.email}
-        />
-        <TextField
-          label="password"
-          name="password"
-          type={'password'}
-          value={data.password}
-          onChange={handleChange}
-          error={errors.password}
-        />
-        <button
-          disabled={!isValid}
-          className={` 
-            bg-gray-400 mt-8 border rounded-xl border-transparent p-2 hover:text-white w-2/4 text-white ${
+    <div className="pt-40 layout-content">
+      <dib className="flex flex-col items-center w-full rounded shadow p-14 wrapper-form sm:w-2/3 md:w-2/5 lg:w-2/6 dark:border-green-400 border-1">
+        <h2>Login</h2>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center w-full text-center"
+        >
+          <TextField
+            label="Email"
+            name="email"
+            value={data.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
+          <TextField
+            label="password"
+            name="password"
+            type={'password'}
+            value={data.password}
+            onChange={handleChange}
+            error={errors.password}
+          />
+          <button
+            disabled={!isValid}
+            className={` 
+            bg-gray-400 mt-8 border rounded-xl border-transparent p-2 hover:text-white w-3/4 text-white dark:bg-gray-600 ${
               isValid ? 'hover:bg-blue-700 text-white animate-pulse' : ''
             } 
           `}
-        >
-          Submit
-        </button>
-      </form>
+          >
+            Submit
+          </button>
+        </form>
+      </dib>
     </div>
   )
 }

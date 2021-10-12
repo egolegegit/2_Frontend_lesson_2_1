@@ -9,7 +9,7 @@ import SearchStatus from './searchStatus'
 import UserTable from './usersTable'
 import Loader from './loader'
 import TextField from './textField'
-import searchUsersbyName from '../utils/searchBySrting'
+import searchBySubString from '../utils/searchBySubString'
 
 const UsersList = () => {
   const pageSize = 8
@@ -91,7 +91,7 @@ const UsersList = () => {
         )
       : users
 
-    filterUsers = searchUsersbyName(filterUsers, searchData)
+    filterUsers = searchBySubString(filterUsers, searchData)
 
     const userCount = filterUsers.length
     const pageCount = Math.ceil(userCount / pageSize)
@@ -132,7 +132,7 @@ const UsersList = () => {
                   label=""
                   name="search"
                   value={searchData}
-                  placeholder={'search by name ...'}
+                  placeholder={'search ...'}
                   onChange={handleChange}
                 />
                 <UserTable
