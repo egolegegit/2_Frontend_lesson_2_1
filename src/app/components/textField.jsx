@@ -19,7 +19,7 @@ const TextField = ({
 
   const getInputClasses = () => {
     return (
-      'w-full h-8 px-2 py-3 mt-1 border-gray-300 dark:border-green-400 rounded border-1 dark:bg-transparent dark:focus:border-green-400 outline-none ' +
+      'w-full h-8 px-2 py-3 mt-1 border-gray-300 dark:border-green-400 rounded border-1 dark:bg-transparent dark:text-white dark:focus:border-green-400 outline-none ' +
       (error
         ? 'border-red-400 focus:border-red-500 is-invalid'
         : 'border-gray-400')
