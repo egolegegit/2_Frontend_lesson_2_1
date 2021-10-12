@@ -126,30 +126,32 @@ const UsersList = () => {
                 </>
               )}
             </div>
-            {userCount > 0 && (
-              <div className="d-flex flex-column flex-fill">
-                <TextField
-                  label=""
-                  name="search"
-                  value={searchData}
-                  placeholder={'search ...'}
-                  onChange={handleChange}
-                />
-                <UserTable
-                  users={usersCrop}
-                  onSort={handleSort}
-                  selectedSort={sortBy}
-                  onDelete={handleDelete}
-                  onToggleBookMark={handleToggleBookMark}
-                />
-                <Pagination
-                  userCount={userCount}
-                  pageSize={pageSize}
-                  currentPage={newCurrentPage}
-                  onPageChange={handlePageChange}
-                />
-              </div>
-            )}
+            <div className="d-flex flex-column flex-fill">
+              <TextField
+                label=""
+                name="search"
+                value={searchData}
+                placeholder={'search ...'}
+                onChange={handleChange}
+              />
+              {userCount > 0 && (
+                <>
+                  <UserTable
+                    users={usersCrop}
+                    onSort={handleSort}
+                    selectedSort={sortBy}
+                    onDelete={handleDelete}
+                    onToggleBookMark={handleToggleBookMark}
+                  />
+                  <Pagination
+                    userCount={userCount}
+                    pageSize={pageSize}
+                    currentPage={newCurrentPage}
+                    onPageChange={handlePageChange}
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
       )
