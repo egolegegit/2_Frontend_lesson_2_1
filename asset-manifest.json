@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/2_Frontend_lesson_2_1/static/css/main.e6857a3e.chunk.css",
-    "main.js": "/2_Frontend_lesson_2_1/static/js/main.40c8da62.chunk.js",
-    "main.js.map": "/2_Frontend_lesson_2_1/static/js/main.40c8da62.chunk.js.map",
-    "runtime-main.js": "/2_Frontend_lesson_2_1/static/js/runtime-main.aff09feb.js",
-    "runtime-main.js.map": "/2_Frontend_lesson_2_1/static/js/runtime-main.aff09feb.js.map",
-    "static/css/2.b41f1852.chunk.css": "/2_Frontend_lesson_2_1/static/css/2.b41f1852.chunk.css",
-    "static/js/2.1da7e3c4.chunk.js": "/2_Frontend_lesson_2_1/static/js/2.1da7e3c4.chunk.js",
-    "static/js/2.1da7e3c4.chunk.js.map": "/2_Frontend_lesson_2_1/static/js/2.1da7e3c4.chunk.js.map",
-    "static/js/3.b1d5a97e.chunk.js": "/2_Frontend_lesson_2_1/static/js/3.b1d5a97e.chunk.js",
-    "static/js/3.b1d5a97e.chunk.js.map": "/2_Frontend_lesson_2_1/static/js/3.b1d5a97e.chunk.js.map",
+    "main.css": "/2_Frontend_lesson_2_1/static/css/main.96d1f78b.chunk.css",
+    "main.js": "/2_Frontend_lesson_2_1/static/js/main.4ee7b06f.chunk.js",
+    "main.js.map": "/2_Frontend_lesson_2_1/static/js/main.4ee7b06f.chunk.js.map",
+    "runtime-main.js": "/2_Frontend_lesson_2_1/static/js/runtime-main.9cfcd501.js",
+    "runtime-main.js.map": "/2_Frontend_lesson_2_1/static/js/runtime-main.9cfcd501.js.map",
+    "static/css/2.41935ea2.chunk.css": "/2_Frontend_lesson_2_1/static/css/2.41935ea2.chunk.css",
+    "static/js/2.f3abd7be.chunk.js": "/2_Frontend_lesson_2_1/static/js/2.f3abd7be.chunk.js",
+    "static/js/2.f3abd7be.chunk.js.map": "/2_Frontend_lesson_2_1/static/js/2.f3abd7be.chunk.js.map",
+    "static/js/3.8f2218c7.chunk.js": "/2_Frontend_lesson_2_1/static/js/3.8f2218c7.chunk.js",
+    "static/js/3.8f2218c7.chunk.js.map": "/2_Frontend_lesson_2_1/static/js/3.8f2218c7.chunk.js.map",
     "index.html": "/2_Frontend_lesson_2_1/index.html",
-    "static/css/2.b41f1852.chunk.css.map": "/2_Frontend_lesson_2_1/static/css/2.b41f1852.chunk.css.map",
-    "static/css/main.e6857a3e.chunk.css.map": "/2_Frontend_lesson_2_1/static/css/main.e6857a3e.chunk.css.map",
-    "static/js/2.1da7e3c4.chunk.js.LICENSE.txt": "/2_Frontend_lesson_2_1/static/js/2.1da7e3c4.chunk.js.LICENSE.txt"
+    "static/css/2.41935ea2.chunk.css.map": "/2_Frontend_lesson_2_1/static/css/2.41935ea2.chunk.css.map",
+    "static/css/main.96d1f78b.chunk.css.map": "/2_Frontend_lesson_2_1/static/css/main.96d1f78b.chunk.css.map",
+    "static/js/2.f3abd7be.chunk.js.LICENSE.txt": "/2_Frontend_lesson_2_1/static/js/2.f3abd7be.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.aff09feb.js",
-    "static/css/2.b41f1852.chunk.css",
-    "static/js/2.1da7e3c4.chunk.js",
-    "static/css/main.e6857a3e.chunk.css",
-    "static/js/main.40c8da62.chunk.js"
+    "static/js/runtime-main.9cfcd501.js",
+    "static/css/2.41935ea2.chunk.css",
+    "static/js/2.f3abd7be.chunk.js",
+    "static/css/main.96d1f78b.chunk.css",
+    "static/js/main.4ee7b06f.chunk.js"
   ]
 }
