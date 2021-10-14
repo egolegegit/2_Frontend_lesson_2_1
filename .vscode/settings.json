@@ -7,5 +7,6 @@
       "icon": "flame"
     }
   },
-  "todo-tree.highlights.defaultHighlight": {}
+  "todo-tree.highlights.defaultHighlight": {},
+  "git.allowForcePush": true
 }
