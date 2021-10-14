@@ -1,12 +1,20 @@
 # Модуль 2. Frontend
 
-## 10. Формы. Часть 1
+## 10. Формы. Часть 2
 
-Реализован поиск по наименованию
+Цель урока:
 
-При фильтрации по профессии результаты поиска по наименованию сбрасываются
+Научиться создавать переиспользуемые компоненты: select, muliselect, radio, checkbox
+Понять, как правильно структурировать компоненты
+Содержание урока:
 
-Реализован провайдер для работы с light/dark темами
+     1. Рефакторинг компонентов
+
+     2. Создание компонентов авторизации и регистрации
+
+     3. Компоненты select, muliselect, radio, checkbox
+
+     4. Валидация с использованием Yup
 
 В проекте используется
 
@@ -15,9 +23,3 @@
 > - [Bootstrap](https://getbootstrap.com/) - most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins
 > - SCSS
 > - Eslint, Prettier and VSCode configured (.vscode for tailwind intellisense)
-
-![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part1/screenshort/Screenshot%202021-10-13%20003017.jpg 'поиск по наименованию')
-
-![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part1/screenshort/Screenshot%202021-10-13%20003047.jpg 'Dark theme')
-
-![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part1/screenshort/Screenshot%202021-10-13%20003129.jpg 'Фильтрация по профессии')
