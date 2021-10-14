@@ -1,5 +1,5 @@
 import React from 'react'
-import SortIcon from '../assets/svg/sortIcon'
+import SortIcon from '../../../assets/svg/sortIcon'
 import PropTypes from 'prop-types'
 
 const TableHeader = ({ onSort, selectedSort, columns, getThead }) => {

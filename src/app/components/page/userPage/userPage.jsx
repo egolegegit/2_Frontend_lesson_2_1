@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import api from '../api'
-import Loader from './loader'
-import QualitiesList from './qualitiesList'
+import api from '../../../api'
+import Loader from '../../../components/common/loader'
+import Qualities from '../../ui/qualities'
 
 const UserPage = () => {
   const params = useParams()
@@ -31,7 +31,7 @@ const UserPage = () => {
             <h2 className="mb-4 card-title dark:text-green-300">{user.name}</h2>
             <h5 className="mb-2 card-subtitle dark:text-green-300">
               <span className="dark:text-green-300">Качества: </span>
-              <QualitiesList qualities={user.qualities} />
+              <Qualities qualities={user.qualities} />
             </h5>
             <h5>
               <span className="dark:text-green-300">Профессия: </span>

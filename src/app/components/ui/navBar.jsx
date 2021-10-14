@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import ThemeToggle from './themetoggle/ThemeToggle'
+import ThemeToggle from '../../components/common/themetoggle/ThemeToggle'
 
 const NavBar = () => {
   return (

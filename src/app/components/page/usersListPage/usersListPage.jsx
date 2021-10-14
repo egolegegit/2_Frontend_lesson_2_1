@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-import api from '../api'
-import paginate from '../utils/paginate'
-import Pagination from './pagination'
-import GroupList from './groupList'
-import SearchStatus from './searchStatus'
-import UserTable from './usersTable'
-import Loader from './loader'
-import TextField from './textField'
-import searchBySubString from '../utils/searchBySubString'
+import api from '../../../api'
+import paginate from '../../../utils/paginate'
+import Pagination from '../../common/pagination'
+import GroupList from '../../common/groupList'
+import SearchStatus from '../../ui/searchStatus'
+import UserTable from '../../ui/usersTable'
+import Loader from '../../common/loader'
+import TextField from '../../common/form/textField'
+import searchBySubString from '../../../utils/searchBySubString'
 
-const UsersList = () => {
+const UsersListPage = () => {
   const pageSize = 8
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
@@ -162,6 +162,6 @@ const UsersList = () => {
   return <Loader />
 }
 
-UsersList.propTypes = { users: PropTypes.array }
+UsersListPage.propTypes = { users: PropTypes.array }
 
-export default UsersList
+export default UsersListPage
