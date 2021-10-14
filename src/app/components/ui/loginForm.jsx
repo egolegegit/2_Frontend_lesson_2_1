@@ -48,41 +48,36 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="pt-40 layout-content">
-      <div className="flex flex-col items-center w-full rounded shadow p-14 wrapper-form sm:w-2/3 md:w-2/5 lg:w-2/6 dark:border-green-400 border-1">
-        <h2>Login</h2>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col items-center w-full text-center"
-        >
-          <TextField
-            label="Email"
-            name="email"
-            value={data.email}
-            onChange={handleChange}
-            error={errors.email}
-          />
-          <TextField
-            label="password"
-            name="password"
-            type={'password'}
-            value={data.password}
-            onChange={handleChange}
-            error={errors.password}
-          />
-          <button
-            disabled={!isValid}
-            className={` 
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center w-full text-center"
+    >
+      <TextField
+        label="Email"
+        name="email"
+        value={data.email}
+        onChange={handleChange}
+        error={errors.email}
+      />
+      <TextField
+        label="password"
+        name="password"
+        type={'password'}
+        value={data.password}
+        onChange={handleChange}
+        error={errors.password}
+      />
+      <button
+        disabled={!isValid}
+        className={` 
             bg-gray-400 mt-8 border rounded-xl border-transparent p-2 hover:text-white w-3/4 text-white dark:bg-gray-600 ${
               isValid ? 'hover:bg-blue-700 text-white animate-pulse' : ''
             } 
           `}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
+      >
+        Submit
+      </button>
+    </form>
   )
 }
 
