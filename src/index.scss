@@ -139,7 +139,8 @@
     border-radius: inherit;
   }
 
-  input {
+  input[type='text'],
+  input[type='password'] {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
@@ -152,10 +153,17 @@
     -webkit-text-fill-color: #000;
   }
 
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
+  input[type='text']:-webkit-autofill,
+  input[type='text']:-webkit-autofill:hover,
+  input[type='text']:-webkit-autofill:focus,
+  input[type='text']:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
+  input[type='password']:-webkit-autofill,
+  input[type='password']:-webkit-autofill:hover,
+  input[type='password']:-webkit-autofill:focus,
+  input[type='password']:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
   }
 }
