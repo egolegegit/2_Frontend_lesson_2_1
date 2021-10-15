@@ -70,7 +70,7 @@ const RegisterForm = () => {
         error={errors.email}
       />
       <TextField
-        label="password"
+        label="Password"
         name="password"
         type={'password'}
         value={data.password}

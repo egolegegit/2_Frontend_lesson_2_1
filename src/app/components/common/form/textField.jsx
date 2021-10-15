@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const TextField = ({
@@ -17,10 +17,10 @@ const TextField = ({
   }
 
   const getInputClasses = () => {
-    return `w-full h-8 px-2 py-3 mt-1 border-gray-300 dark:border-green-400 rounded border-1 dark:bg-transparent dark:text-white dark:focus:border-green-400 outline-none ${
+    return ` ${
       error
-        ? 'border-red-400 focus:border-red-500 is-invalid'
-        : 'border-gray-400'
+        ? 'is-invalid'
+        : ''
     }`
   }
 
@@ -38,7 +38,7 @@ const TextField = ({
           value={value}
           placeholder={`${placeholder || name}`}
           onChange={onChange}
-          className={getInputClasses() + ''}
+          className={getInputClasses()}
         />
 
         {type === 'password' && !error && (
@@ -50,7 +50,7 @@ const TextField = ({
           ></button>
         )}
       </div>
-      <span className="h-4 pt-1 text-red-400 text-start dark:text-red-300">
+      <span className="h-6 pt-1 text-red-400 text-start dark:text-red-300">
         {error}
       </span>
     </div>

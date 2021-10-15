@@ -17,11 +17,9 @@ const SelectedField = ({
         }))
       : options
 
-      console.log();
-
-  const getInputClasses = () => {
-    return `w-full h-8 px-2 py-3 mt-1 border-gray-300 dark:border-green-400 rounded border-1 bg-transparent dark:text-gray-700 dark:focus:border-green-400  outline-none ${
-      error ? 'border-red-400 focus:border-red-500 ' : 'border-gray-400'
+  const getSelestClasses = () => {
+    return `${
+      error ? ' ' : ''
     }`
   }
 
@@ -34,7 +32,7 @@ const SelectedField = ({
         {label}
       </label>
       <select
-        className={getInputClasses() + ''}
+        className={getSelestClasses()}
         id="validationCustom04"
         name="profession"
         value={value}
@@ -51,7 +49,7 @@ const SelectedField = ({
           ))}
       </select>
       {error && (
-        <span className="h-4 pt-1 text-red-400 text-start dark:text-red-300">
+        <span className="h-6 pt-1 text-red-400 text-start dark:text-red-300">
           {error}
         </span>
       )}
