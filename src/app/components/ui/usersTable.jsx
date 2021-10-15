@@ -11,7 +11,6 @@ const UserTable = ({
   selectedSort,
   onDelete,
   onToggleBookMark,
-  ...rest
 }) => {
   // TODO основа!!! к такой обьект должна возвращать функция getThead
   const columns = {

@@ -45,7 +45,7 @@ const UsersListPage = () => {
   }, [selectedProf])
 
   const handleDelete = (userId) => {
-    setUsers(users.filter((item, id) => item._id !== userId))
+    setUsers(users.filter((item) => item._id !== userId))
   }
 
   const handleToggleBookMark = (id) => {
@@ -74,7 +74,7 @@ const UsersListPage = () => {
 
   const handleChange = ({ target }) => {
     setSelectedProf()
-    setSearchData((prevState) => target.value)
+    setSearchData(target.value)
   }
 
   const clearFilter = () => {
