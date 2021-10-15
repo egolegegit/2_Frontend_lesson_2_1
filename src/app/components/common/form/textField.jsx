@@ -10,7 +10,6 @@ const TextField = ({
   onChange,
   error,
 }) => {
-  const input = useRef()
   const [showPassword, setShowPassword] = useState(false)
 
   const toggleShowPassword = () => {
@@ -25,10 +24,6 @@ const TextField = ({
     }`
   }
 
-  useEffect(() => {
-    input.current.focus()
-  })
-
   return (
     <div className="flex flex-col w-full">
       <label htmlFor={name} className="w-full mt-3 text-start">
@@ -37,7 +32,6 @@ const TextField = ({
 
       <div className="input-group">
         <input
-          ref={input}
           type={showPassword ? 'text' : type}
           id={name}
           name={name}
