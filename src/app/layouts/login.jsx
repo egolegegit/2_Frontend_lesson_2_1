@@ -20,23 +20,31 @@ const Login = () => {
           <>
             <h2>Register</h2>
             <RegisterForm />{' '}
-            <span>
-              Already have account?
-              <a role="button" onClick={toggleFormType}>
+            <div className="flex justify-between w-full pt-4">
+              <span>Already have account?</span>
+              <a
+                role="button"
+                onClick={toggleFormType}
+                className="no-underline dark:text-white dark:hover:text-gray-300"
+              >
                 Sign In
               </a>
-            </span>
+            </div>
           </>
         ) : (
           <>
             <h2>Login</h2>
             <LoginForm />
-            <span>
+            <div className="flex justify-between w-full pt-4">
               Dont have account?
-              <a role="button" onClick={toggleFormType}>
-                Sign UP
+              <a
+                role="button"
+                onClick={toggleFormType}
+                className="no-underline dark:text-white dark:hover:text-gray-300"
+              >
+                Sign Up
               </a>
-            </span>
+            </div>
           </>
         )}
       </div>
