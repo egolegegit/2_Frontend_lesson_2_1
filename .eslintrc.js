@@ -42,7 +42,7 @@ module.exports = {
       },
     ],
     'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
-    'react-hooks/exhaustive-deps': 'warn', // Проверяем зависимости эффекта
+    // 'react-hooks/exhaustive-deps': 'warn', // Проверяем зависимости эффекта
   },
   reportUnusedDisableDirectives: true,
 }
