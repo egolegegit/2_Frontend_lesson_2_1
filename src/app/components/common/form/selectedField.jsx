@@ -10,14 +10,14 @@ const SelectedField = ({
   error,
 }) => {
   const optionsArray =
-    !Array.isArray(options) && typeof option === 'object'
+    !Array.isArray(options) && typeof options === 'object'
       ? Object.keys(options).map((optionName) => ({
           name: options[optionName].name,
           value: options[optionName]._id,
         }))
       : options
 
-  const getSelestClasses = () => {
+  const getSelectClasses = () => {
     return `${
       error ? ' ' : ''
     }`
@@ -32,7 +32,7 @@ const SelectedField = ({
         {label}
       </label>
       <select
-        className={getSelestClasses()}
+        className={getSelectClasses()}
         id="validationCustom04"
         name="profession"
         value={value}
@@ -42,8 +42,8 @@ const SelectedField = ({
           {defaultOption}
         </option>
         {optionsArray &&
-          optionsArray.map((option) => (
-            <option key={option._id} value={option.value}>
+          optionsArray.map((option, idx) => (
+            <option key={idx} value={option.value}>
               {option.name}
             </option>
           ))}
