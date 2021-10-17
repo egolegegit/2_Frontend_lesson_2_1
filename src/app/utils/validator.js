@@ -7,9 +7,10 @@ export function validator(data, config) {
     switch (validateMethod) {
       case 'isRequired': {
         if (typeof data === 'boolean') {
-          statusValidate=!data
-        }else{
-        statusValidate = data.trim() === ''}
+          statusValidate = !data
+        } else {
+          statusValidate = data.trim() === ''
+        }
         break
       }
 

@@ -28,9 +28,9 @@ const GroupList = ({
         {sortItems.map((item) => (
           <li
             key={items[item][valueProperty]}
-            className={
-              `hover-link px-2 py-2 dark:text-white${items[item] === selectedItem ? ' active' : ''}`
-            }
+            className={`hover-link px-2 py-2 dark:text-white${
+              items[item] === selectedItem ? ' active' : ''
+            }`}
             onClick={() => onitemSelect(items[item])}
             role="button"
           >
