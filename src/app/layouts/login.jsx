@@ -9,7 +9,7 @@ const Login = () => {
 
   const toggleFormType = () => {
     setFormType((prevState) =>
-      prevState === 'register' ? 'logig' : 'register'
+      prevState === 'register' ? 'login' : 'register'
     )
   }
 
@@ -19,7 +19,7 @@ const Login = () => {
         {formType === 'register' ? (
           <>
             <h2>Register</h2>
-            <RegisterForm />{' '}
+            <RegisterForm />
             <div className="flex justify-between w-full pt-4">
               <span>Already have account?</span>
               <a
@@ -36,7 +36,7 @@ const Login = () => {
             <h2>Login</h2>
             <LoginForm />
             <div className="flex justify-between w-full pt-4">
-              Dont have account?
+              Don.t have account?
               <a
                 role="button"
                 onClick={toggleFormType}

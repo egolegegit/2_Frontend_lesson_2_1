@@ -17,11 +17,7 @@ const TextField = ({
   }
 
   const getInputClasses = () => {
-    return ` ${
-      error
-        ? 'is-invalid'
-        : ''
-    }`
+    return ` ${error ? 'is-invalid' : ''}`
   }
 
   return (
@@ -47,7 +43,7 @@ const TextField = ({
             type="button"
             title="show password"
             onClick={toggleShowPassword}
-          ></button>
+          />
         )}
       </div>
       <span className="h-6 pt-1 text-red-400 text-start dark:text-red-300">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { validator } from '../../utils/validator'
 import api from '../../api'
+import { validator } from '../../utils/validator'
 import TextField from '../common/form/textField'
 import SelectedField from '../common/form/selectedField'
 import RadioField from '../common/form/radioField'
@@ -14,6 +14,10 @@ const RegisterForm = () => {
   })
   const [professions, setProfessions] = useState()
   const [errors, setErrors] = useState({})
+
+  useEffect(() => {
+    api.professions.fetchAll().then((data) => setProfessions(data))
+  }, [])
 
   const validatorConfig = {
     email: {
@@ -59,10 +63,6 @@ const RegisterForm = () => {
     validate()
   }, [data])
 
-  useEffect(() => {
-    api.professions.fetchAll().then((data) => setProfessions(data))
-  }, [])
-
   return (
     <form
       onSubmit={handleSubmit}
@@ -107,33 +107,6 @@ const RegisterForm = () => {
         value={data.sex}
         onChange={handleChange}
       />
-
-      {/* <div className="w-full my-4">
-        <label
-          htmlFor="validationCustom04"
-          className="w-full text-left form-label"
-        >
-          Профессия
-        </label>
-        <select
-          className="form-select"
-          id="validationCustom04"
-          name="profession"
-          value={data.profession}
-          onChange={handleChange}
-        >
-          <option disabled value="">
-            Choose...
-          </option>
-          {professions &&
-            professions.map((profession) => (
-              <option key={profession._id} value={profession._id}>
-                {profession.name}
-              </option>
-            ))}
-        </select>
-        <div className="invalid-feedback">Please select a valid state.</div>
-      </div> */}
 
       <button
         disabled={!isValid}
