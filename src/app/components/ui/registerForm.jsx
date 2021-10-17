@@ -68,7 +68,6 @@ const RegisterForm = () => {
     const isValid = validate()
 
     if (!isValid) return
-    console.log(errors, data)
   }
 
   useEffect(() => {
