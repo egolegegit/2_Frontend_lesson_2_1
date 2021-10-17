@@ -42,10 +42,8 @@ const RegisterForm = () => {
     },
   }
 
-  const handleChange = ({ target }) => {
-    if (target) {
-      setData((prevState) => ({ ...prevState, [target.name]: target.value }))
-    }
+  const handleChange = (target) => {
+    setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
 
   const validate = () => {
@@ -103,7 +101,7 @@ const RegisterForm = () => {
       />
 
       <RadioField
-        label={'Sex'}
+        label='Выберите ваш пол'
         name="sex"
         options={[
           { name: 'Male', value: 'male' },
@@ -117,7 +115,8 @@ const RegisterForm = () => {
       <MultiSelectField
         options={qualities}
         onChange={handleChange}
-        name={name}
+        name="qualities"
+        label='Выберите ваши качества'
       />
 
       <button

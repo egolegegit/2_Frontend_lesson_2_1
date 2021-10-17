@@ -12,6 +12,10 @@ const TextField = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false)
 
+  const handleChange = ({ target }) => {
+    onChange({ name: target.name, value: target.value })
+  }
+
   const toggleShowPassword = () => {
     setShowPassword((prevState) => !prevState)
   }
@@ -22,7 +26,7 @@ const TextField = ({
 
   return (
     <div className="flex flex-col w-full">
-      <label htmlFor={name} className="w-full mt-3 text-start">
+      <label htmlFor={name} className="w-full mt-3 mb-2 text-start">
         {label}
       </label>
 
@@ -33,7 +37,7 @@ const TextField = ({
           name={name}
           value={value}
           placeholder={`${placeholder || name}`}
-          onChange={onChange}
+          onChange={handleChange}
           className={getInputClasses()}
         />
 

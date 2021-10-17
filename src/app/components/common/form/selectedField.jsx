@@ -17,10 +17,12 @@ const SelectedField = ({
         }))
       : options
 
+  const handleChange = ({ target }) => {
+    onChange({ name: target.name, value: target.value })
+  }
+
   const getSelectClasses = () => {
-    return `${
-      error ? ' ' : ''
-    }`
+    return `${error ? ' ' : ''}`
   }
 
   return (
@@ -36,7 +38,7 @@ const SelectedField = ({
         id="validationCustom04"
         name="profession"
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
       >
         <option disabled value="">
           {defaultOption}
