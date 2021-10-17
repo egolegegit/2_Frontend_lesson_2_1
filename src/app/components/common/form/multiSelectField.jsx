@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select/'
 import PropTypes from 'prop-types'
 
-const MultiSelectField = ({ options, onChange, name, label }) => {
+const MultiSelectField = ({ options, onChange, name, label, defaultValue }) => {
   const optionsArray =
     !Array.isArray(options) && typeof options === 'object'
       ? Object.keys(options).map((optionName) => ({
@@ -19,7 +19,7 @@ const MultiSelectField = ({ options, onChange, name, label }) => {
     <div className="flex flex-col w-full my-4">
       <label className="w-full text-left form-label">{label}</label>
       <Select
-        defaultValue={options}
+        defaultValue={defaultValue}
         isMulti
         closeMenuOnSelect={false}
         options={optionsArray}
@@ -38,7 +38,7 @@ MultiSelectField.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.array,
   error: PropTypes.string,
 }
 

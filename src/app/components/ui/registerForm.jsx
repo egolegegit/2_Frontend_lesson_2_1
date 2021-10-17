@@ -101,7 +101,7 @@ const RegisterForm = () => {
       />
 
       <RadioField
-        label='Выберите ваш пол'
+        label="Выберите ваш пол"
         name="sex"
         options={[
           { name: 'Male', value: 'male' },
@@ -116,7 +116,8 @@ const RegisterForm = () => {
         options={qualities}
         onChange={handleChange}
         name="qualities"
-        label='Выберите ваши качества'
+        label="Выберите ваши качества"
+        defaultValue={data.qualities}
       />
 
       <button
