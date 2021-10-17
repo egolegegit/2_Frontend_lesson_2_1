@@ -4,6 +4,7 @@ import { validator } from '../../utils/validator'
 import TextField from '../common/form/textField'
 import SelectedField from '../common/form/selectedField'
 import RadioField from '../common/form/radioField'
+import MultiSelectField from '../common/form/multiSelectField'
 
 const RegisterForm = () => {
   const [data, setData] = useState({
@@ -11,12 +12,15 @@ const RegisterForm = () => {
     password: '',
     profession: '',
     sex: 'male',
+    qualities: [],
   })
   const [professions, setProfessions] = useState()
+  const [qualities, setQualities] = useState({})
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
     api.professions.fetchAll().then((data) => setProfessions(data))
+    api.qualities.fetchAll().then((data) => setQualities(data))
   }, [])
 
   const validatorConfig = {
@@ -39,7 +43,9 @@ const RegisterForm = () => {
   }
 
   const handleChange = ({ target }) => {
-    setData((prevState) => ({ ...prevState, [target.name]: target.value }))
+    if (target) {
+      setData((prevState) => ({ ...prevState, [target.name]: target.value }))
+    }
   }
 
   const validate = () => {
@@ -106,6 +112,12 @@ const RegisterForm = () => {
         ]}
         value={data.sex}
         onChange={handleChange}
+      />
+
+      <MultiSelectField
+        options={qualities}
+        onChange={handleChange}
+        name={name}
       />
 
       <button
