@@ -5,6 +5,7 @@ import NavBar from './components/ui/navBar'
 import Users from './layouts/users'
 import Login from './layouts/login'
 import Main from './layouts/main'
+import UserEditPage from './components/page/userEditPage/userEditPage'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <NavBar />
           <Switch>
             <Route path="/login:type?" component={Login} />
-            <Route path="/users/:userId?" component={Users} />
+            <Route path="/users/:userId?" exact component={Users} />
+            <Route path="/users/:userId/edit" component={UserEditPage} />
             <Route path="/" component={Main} />
             <Redirect to="/" />
           </Switch>

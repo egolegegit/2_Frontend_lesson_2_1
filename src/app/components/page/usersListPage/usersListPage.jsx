@@ -17,7 +17,7 @@ const UsersListPage = () => {
   const [selectedProf, setSelectedProf] = useState()
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
-  const [searchData, setSearchData] = useState('')
+  const [searchData, setSearchData] = useState({ search: '' })
 
   const [users, setUsers] = useState()
 
@@ -61,7 +61,7 @@ const UsersListPage = () => {
 
   const handleProfessionsSelect = (item) => {
     setSelectedProf(item)
-    setSearchData('')
+    setSearchData({ search: '' })
   }
 
   const handlePageChange = (pageIdx) => {
@@ -72,14 +72,18 @@ const UsersListPage = () => {
     setSortBy(item)
   }
 
-  const handleChange = ({ target }) => {
+  const handleChange = (target) => {
     setSelectedProf()
-    setSearchData(target.value)
+
+    setSearchData((prevState) => ({
+      ...prevState,
+      [target.name]: target.value,
+    }))
   }
 
   const clearFilter = () => {
     setSelectedProf()
-    setSearchData('')
+    setSearchData({ search: '' })
   }
 
   if (users) {
@@ -91,7 +95,7 @@ const UsersListPage = () => {
         )
       : users
 
-    filterUsers = searchBySubString(filterUsers, searchData)
+    filterUsers = searchBySubString(filterUsers, searchData.search)
 
     const userCount = filterUsers.length
     const pageCount = Math.ceil(userCount / pageSize)
@@ -130,7 +134,7 @@ const UsersListPage = () => {
               <TextField
                 label=""
                 name="search"
-                value={searchData}
+                value={searchData.search}
                 placeholder={'search ...'}
                 onChange={handleChange}
               />

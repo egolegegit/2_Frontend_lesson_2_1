@@ -11,6 +11,11 @@ const MultiSelectField = ({ options, onChange, name, label, defaultValue }) => {
         }))
       : options
 
+  const defaultValueArray = Object.keys(defaultValue).map((optionName) => ({
+    label: defaultValue[optionName].name,
+    value: defaultValue[optionName]._id,
+  }))
+
   const handleChange = (value) => {
     onChange({ name: name, value })
   }
@@ -19,7 +24,7 @@ const MultiSelectField = ({ options, onChange, name, label, defaultValue }) => {
     <div className="flex flex-col w-full my-4">
       <label className="w-full text-left form-label">{label}</label>
       <Select
-        defaultValue={defaultValue}
+        defaultValue={defaultValueArray}
         isMulti
         closeMenuOnSelect={false}
         options={optionsArray}

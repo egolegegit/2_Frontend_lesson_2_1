@@ -45,6 +45,7 @@ const LoginForm = () => {
     const isValid = validate()
 
     if (!isValid) return
+    console.log('data', data)
   }
 
   return (

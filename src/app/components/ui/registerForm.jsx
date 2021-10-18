@@ -13,7 +13,13 @@ const RegisterForm = () => {
     password: '',
     profession: '',
     sex: 'male',
-    qualities: [],
+    qualities: [
+      {
+        _id: '67rdca3eeb7f6fgeed471103',
+        name: 'Красавчик',
+        color: 'info',
+      },
+    ],
     licence: false,
   })
   const [professions, setProfessions] = useState()
@@ -68,6 +74,7 @@ const RegisterForm = () => {
     const isValid = validate()
 
     if (!isValid) return
+    console.log(data)
   }
 
   useEffect(() => {
