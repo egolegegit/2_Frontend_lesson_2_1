@@ -124,7 +124,6 @@ const UserEditPage = () => {
     }
 
     api.users.update(data._id, data)
-    console.log('data', data)
     history.push(`/users/${data._id}`)
   }
 
