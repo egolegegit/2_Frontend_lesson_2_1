@@ -5,7 +5,7 @@ import TableBody from './tableBody'
 
 const Table = ({ onSort, selectedSort, columns, data, children }) => {
   return (
-    <table className="tableTW">
+    <table className="tableTW dark:bg-gray-700 dark:text-white">
       {children || (
         <>
           <TableHeader {...{ onSort, selectedSort, columns }} />

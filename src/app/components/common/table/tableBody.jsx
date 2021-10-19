@@ -19,7 +19,7 @@ const TableBody = ({ data, columns }) => {
       {data.map((item) => (
         <tr
           key={item._id}
-          className="dark:text-white dark:border-green-300 dark:hover:bg-gray-600 dark:hover:text-white hover-link"
+          className="dark:text-white dark:hover:bg-gray-600 dark:hover:text-white hover-link"
         >
           {Object.keys(columns).map((column) => (
             <td className={columns[column].classname} key={column}>

@@ -16,7 +16,7 @@ const TableHeader = ({ onSort, selectedSort, columns }) => {
 
   return (
     <thead>
-      <tr className="dark:text-green-300 dark:border-green-300">
+      <tr className="dark:text-green-300">
         {Object.keys(columns).map((column) => (
           <th
             onClick={
