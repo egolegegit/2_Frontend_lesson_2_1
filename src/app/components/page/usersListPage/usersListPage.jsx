@@ -18,7 +18,6 @@ const UsersListPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
   const [searchData, setSearchData] = useState({ search: '' })
-
   const [users, setUsers] = useState()
 
   useEffect(() => {
