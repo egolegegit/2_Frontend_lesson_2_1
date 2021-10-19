@@ -130,7 +130,7 @@ const UserEditPage = () => {
   if (data) {
     return (
       <div className="pt-40 layout-content">
-        <div className="flex flex-col items-center w-full p-10 rounded shadow wrapper-form sm:w-2/3 md:w-2/5 lg:w-2/6 dark:border-green-400 border-1">
+        <div className="flex flex-col items-center w-full p-10 rounded shadow wrapper-form sm:w-2/3 md:w-2/5 lg:w-2/6 border-1 dark:bg-gray-700">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col items-center w-full "
