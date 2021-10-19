@@ -38,7 +38,7 @@ const UserPage = () => {
               <MeetingsCard user={user} />
             </div>
             <div className="col-md-8">
-              <NewComment />
+              <NewComment userId={user._id}/>
               <CommentList user={user} />
             </div>
 
