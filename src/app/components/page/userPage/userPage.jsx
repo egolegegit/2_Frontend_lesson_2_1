@@ -33,28 +33,26 @@ const UserPage = () => {
 
         <div className="container">
           <div className="row gutters-sm">
-            <button
-              className="mt-2 btn btn-secondary w-30"
-              onClick={() => history.push('/users')}
-              title="to the list users"
-            >
-              {'--->'}
-            </button>
-
             <div className="mb-3 col-md-4">
               <div className="mb-3 card">
                 <div className="card-body dark:bg-gray-700">
                   <button
-                    className="top-0 position-absolute end-0 btn btn-light btn-sm"
+                    className="top-0 position-absolute end-0 btn btn-sm dark:bg-gray-400"
                     onClick={() => history.push(`/users/${user._id}/edit`)}
                   >
                     <Gear />
                   </button>
                   <div className="text-center d-flex flex-column align-items-center position-relative">
                     <img
-                      src="https://avatars.dicebear.com/api/avataaars/qweqwdas.svg"
-                      className="rounded-circle"
+                      src={`https://avatars.dicebear.com/api/avataaars/${(
+                        Math.random() + 1
+                      )
+                        .toString(36)
+                        .substring(7)}.svg`}
+                      className="rounded-circle shadow-1-strong me-3"
+                      alt="avatar"
                       width="150"
+                      height="150"
                     />
                     <div className="mt-3">
                       <h4 className="dark:text-white">{user.name}</h4>
@@ -169,6 +167,16 @@ const UserPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="mt-2 col-md-2">
+              <button
+                className="w-full mt-2 btn btn-secondary"
+                onClick={() => history.push('/users')}
+                title="to the list users"
+              >
+                Users
+              </button>
             </div>
           </div>
         </div>
