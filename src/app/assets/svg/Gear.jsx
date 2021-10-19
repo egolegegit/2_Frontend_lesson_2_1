@@ -8,7 +8,7 @@ const Gear = () => {
       width="20"
       height="20"
       fill="currentColor"
-      className="fill-current"
+      className="fill-current dark:text-white"
       viewBox="0 0 16 16"
     >
       <title>{title}</title>

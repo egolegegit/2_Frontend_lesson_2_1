@@ -1,9 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import displayDate from '../../../utils/displayDate'
+import Delete from '../../../assets/svg/Delete'
 
-const Comment = ({ user, comment }) => {
+const Comment = ({ user, comment, onDelete }) => {
   return (
-    <div className="mb-3 card-body dark:bg-gray-700">
+    <div className="relative mb-3 bg-gray-100 border-transparent rounded border-1 card-body dark:bg-gray-600">
+      <button
+        className="top-0 border-transparent rounded position-absolute end-0 dark:hover:bg-gray-500 hover:bg-gray-300 border-1"
+        onClick={() => onDelete(comment._id)}
+      >
+        <Delete />
+      </button>
+
       <div className="row">
         <div className="col">
           <div className="d-flex flex-start">
@@ -19,18 +28,15 @@ const Comment = ({ user, comment }) => {
                 <div className=" d-flex justify-content-between align-items-center">
                   <p className="mb-1">
                     {user.name}
-                    <span className="small"> 5 минут назад </span>
+                    <span className="small ps-4">
+                      {displayDate(comment.created_at)}
+                    </span>
                   </p>
                   <button className=" btn btn-sm text-primary d-flex align-items-center">
                     <i className="bi bi-x-lg"></i>
                   </button>
                 </div>
-                <p className="mb-0 small">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corporis, soluta facilis fugit hic quasi sapiente accusamus
-                  quia voluptatem dolorum laboriosam id iste voluptas modi animi
-                  eius voluptatum adipisci amet officiis.
-                </p>
+                <p className="mb-0 small">{comment.content}</p>
               </div>
             </div>
           </div>
@@ -43,6 +49,7 @@ const Comment = ({ user, comment }) => {
 Comment.propTypes = {
   user: PropTypes.object,
   comment: PropTypes.object,
+  onDelete: PropTypes.func,
 }
 
 export default Comment

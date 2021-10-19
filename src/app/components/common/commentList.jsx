@@ -19,6 +19,12 @@ const CommentList = ({ user }) => {
     fetchComment()
   }, [user._id])
 
+  const onDelete = (commentId) => {
+    console.log(commentId)
+    setComments(comments.filter((item) => item._id !== commentId))
+    api.comments.remove(commentId)
+  }
+
   return (
     <div className="mb-3 card">
       <div className="card-body dark:bg-gray-700 dark:text-white">
@@ -26,7 +32,12 @@ const CommentList = ({ user }) => {
         <hr />
         {comments &&
           comments.map((comment, idx) => (
-            <Comment key={idx} user={user} comment={comment} />
+            <Comment
+              key={idx}
+              user={user}
+              comment={comment}
+              onDelete={onDelete}
+            />
           ))}
       </div>
     </div>

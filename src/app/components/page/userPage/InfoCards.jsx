@@ -8,7 +8,7 @@ const InfoCard = ({ user }) => {
   return (
     <div className="mb-3 card">
       <button
-        className="top-0 position-absolute end-0 btn btn-sm dark:bg-gray-400"
+        className="top-0 p-1 border-transparent rounded position-absolute end-0 dark:hover:bg-gray-500 border-1"
         onClick={() => history.push(`/users/${user._id}/edit`)}
       >
         <Gear />
