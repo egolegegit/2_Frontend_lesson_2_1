@@ -26,6 +26,13 @@
 
 Учебное приложение (fast-company)
 
-> - 
+> - Реализован ligth / dark mode
 
-![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part2_task_2/screenshort/Screenshot%202021-10-20%20101527.jpg 'Сортировка извлечение в модули рефакторинг module2_lesson7_task1')​
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part2_task_2/screenshort/Screenshot%202021-10-20%20101527.jpg 'Карточка пользователя с добавлением / удалением комментариев')​
+
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part2_task_2/screenshort/Screenshot%202021-10-20%20101603.jpg 'Карточка пользователя с добавлением / удалением комментариев')
+
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part2_task_2/screenshort/Screenshot%202021-10-20%20101731.jpg 'Карточка пользователя с добавлением / удалением комментариев')
+
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part2_task_2/screenshort/Screenshot%202021-10-20%20101757.jpg 'Карточка пользователя с добавлением / удалением комментариев')
+
