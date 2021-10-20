@@ -23,3 +23,9 @@
 > - [Bootstrap](https://getbootstrap.com/) - most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins
 > - SCSS
 > - Eslint, Prettier and VSCode configured (.vscode for tailwind intellisense)
+
+Учебное приложение (fast-company)
+
+> - 
+
+![alt tag](https://github.com/egolegegit/2_Frontend_lesson_2_1/blob/forms_part2_task_2/screenshort/Screenshot%202021-10-20%20101527.jpg 'Сортировка извлечение в модули рефакторинг module2_lesson7_task1')​
