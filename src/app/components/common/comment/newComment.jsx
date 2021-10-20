@@ -5,31 +5,24 @@ import { validator } from '../../../utils/validator'
 import SelectedField from '../../common/form/selectedField'
 import TextAreaField from '../form/textAreaField'
 
-const NewComment = ({ userId }) => {
-  const [data, setData] = useState({ user: '', comment: '' })
-  const [users, setUsers] = useState()
+const NewComment = ({ users, userId, setComments }) => {
+  const [data, setData] = useState({ user: '', content: '' })
   const [errors, setErrors] = useState({})
 
-  useEffect(() => {
-    // api.users.fetchAll().then((data) => setUsers(() => data))
-    // use async/await variant
-    const fetchUsers = async () => {
-      try {
-        const data = await api.users.fetchAll()
-        setUsers(() => data)
-      } catch (error) {
-        console.error(error)
-      }
+  const fetchComment = async () => {
+    try {
+      const data = await api.comments.fetchCommentsForUser(userId)
+      setComments(() => data)
+    } catch (error) {
+      console.error(error)
     }
-
-    fetchUsers()
-  }, [])
+  }
 
   const validatorConfig = {
     user: {
       isRequired: { message: '* Please enter the author of the comment' },
     },
-    comment: {
+    content: {
       isRequired: {
         message: '* Please enter comment',
       },
@@ -43,13 +36,9 @@ const NewComment = ({ userId }) => {
   }
 
   const handleChange = (target) => {
-
     setData((prevState) => ({
       ...prevState,
-      [target.name]:
-        target.name === 'user'
-          ? getId(users, target.value)[0]._id
-          : target.value,
+      [target.name]: target.value,
     }))
   }
 
@@ -67,14 +56,23 @@ const NewComment = ({ userId }) => {
     const isValid = validate()
 
     if (!isValid) return
-    console.log(data, 'userId', userId)
+
+    const newComment = {
+      pageId: userId,
+      userId: getId(users, data.user)[0]._id,
+      content: data.content,
+    }
+
+    api.comments.add(newComment)
+
+    fetchComment()
+
+    setData({ user: '', content: '' })
   }
 
   useEffect(() => {
     validate()
   }, [data])
-
-  console.log(data)
 
   return (
     <div className="mb-2 card">
@@ -87,7 +85,7 @@ const NewComment = ({ userId }) => {
           <div className="mb-4">
             <SelectedField
               className="form-select"
-              label="user"
+              label="Author"
               defaultOption="select author..."
               id="validationCustom09"
               name="user"
@@ -99,10 +97,11 @@ const NewComment = ({ userId }) => {
           </div>
           <div className="mb-4">
             <TextAreaField
-              name="comment"
+              label="Message"
+              name="content"
               rows="3"
-              value={data.value}
-              error={errors.comment}
+              value={data.content}
+              error={errors.content}
               onChange={handleChange}
             />
           </div>
@@ -123,7 +122,9 @@ const NewComment = ({ userId }) => {
 }
 
 NewComment.propTypes = {
+  users: PropTypes.array,
   userId: PropTypes.string,
+  setComments: PropTypes.func,
 }
 
 export default NewComment

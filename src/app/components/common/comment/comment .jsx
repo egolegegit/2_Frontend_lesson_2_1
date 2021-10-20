@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import displayDate from '../../../utils/displayDate'
 import Delete from '../../../assets/svg/Delete'
 
-const Comment = ({ user, comment, onDelete }) => {
+const Comment = ({ users, comment, onDelete }) => {
+  const getName = (arr, id) => {
+    return arr.filter(function (item) {
+      return item._id == id
+    })
+  }
+
   return (
     <div className="relative mb-3 bg-gray-100 border-transparent rounded border-1 card-body dark:bg-gray-600">
       <button
@@ -17,7 +23,11 @@ const Comment = ({ user, comment, onDelete }) => {
         <div className="col">
           <div className="d-flex flex-start">
             <img
-              src="https://avatars.dicebear.com/api/avataaars/qweqasdas.svg"
+              src={`https://avatars.dicebear.com/api/avataaars/${(
+                Math.random() + 1
+              )
+                .toString(36)
+                .substring(7)}.svg`}
               className="rounded-circle shadow-1-strong me-3"
               alt="avatar"
               width="65"
@@ -27,7 +37,7 @@ const Comment = ({ user, comment, onDelete }) => {
               <div className="mb-4">
                 <div className=" d-flex justify-content-between align-items-center">
                   <p className="mb-1">
-                    {user.name}
+                    {getName(users, comment.userId)[0].name}
                     <span className="small ps-4">
                       {displayDate(comment.created_at)}
                     </span>
@@ -47,7 +57,7 @@ const Comment = ({ user, comment, onDelete }) => {
 }
 
 Comment.propTypes = {
-  user: PropTypes.object,
+  users: PropTypes.array,
   comment: PropTypes.object,
   onDelete: PropTypes.func,
 }

@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import api from '../../api/index'
 import Comment from '../common/comment/comment '
 
-const CommentList = ({ user }) => {
-  const [comments, setComments] = useState()
-
-  useEffect(() => {
-    const fetchComment = async () => {
-      try {
-        const data = await api.comments.fetchCommentsForUser(user._id)
-        setComments(() => data)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    fetchComment()
-  }, [user._id])
-
+const CommentList = ({ users, user, comments, setComments }) => {
   const onDelete = (commentId) => {
-    console.log(commentId)
     setComments(comments.filter((item) => item._id !== commentId))
     api.comments.remove(commentId)
   }
@@ -34,6 +18,7 @@ const CommentList = ({ user }) => {
           comments.map((comment, idx) => (
             <Comment
               key={idx}
+              users={users}
               user={user}
               comment={comment}
               onDelete={onDelete}
@@ -46,6 +31,9 @@ const CommentList = ({ user }) => {
 
 CommentList.propTypes = {
   user: PropTypes.object,
+  comments: PropTypes.array,
+  users: PropTypes.array,
+  setComments: PropTypes.func,
 }
 
 export default CommentList
